@@ -27,4 +27,43 @@
     overflow: hidden;
     white-space: nowrap;
 }
+
+.home-typer-h1 {
+    animation: typing-home-mobile 1s steps(15) forwards;
+
+    @media (min-width: 458px ) {
+        animation: typing-home 1s steps(15) forwards;
+    }
+}
+
+.home-typer-h2 {
+    animation: typing-home-two-mobile 3s steps(37) forwards;
+    animation-delay: 1s;
+
+    @media ( min-width: 458px ) {
+        animation: typing-home-two 3s steps(37) forwards;
+        animation-delay: 1s;
+    }
+}
+
+@keyframes typing-home {
+    from { width: 0; }
+    to { width: 87.5%; }
+}
+
+@keyframes typing-home-mobile {
+    from { width: 0; }
+    to { width: 96%; }
+}
+
+@keyframes typing-home-two {
+    from { width: 0; }
+    to { width: 76%; }
+}
+
+@keyframes typing-home-two-mobile {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
 </style>
