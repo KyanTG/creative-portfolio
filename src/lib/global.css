@@ -1,0 +1,23 @@
+html {
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+}
+
+h1 {
+    font-size: 10vw;
+
+    @media ( min-width: 458px ) {
+        font-size: 9vw;
+    }
+}
+
+h2 {
+    font-size: 1em;
+
+    @media (min-width: 458px ) {
+        font-size: 3.5vw;
+    }
+}
