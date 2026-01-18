@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "type": "profile",
+      "wrapperClass": "article-wrapper-one",
+      "image": "/assets/background-clear-me.png",
+      "heading": "Kyan Gijtenbeek"
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "wrapperClass": "article-wrapper-two",
+      "content": "Als laatstejaars Frontend Design & Development student aan de HvA ontdek ik de nieuwste webontwikkelingen en zet ze direct om in praktijkervaring."
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "wrapperClass": "article-wrapper-three",
+      "content": "Creativiteit is mijn drijfveer: ik werk graag zelfstandig nieuwe ideeën uit en haal energie uit samenwerking om ze verder te versterken."
+    },
+    {
+      "id": 4,
+      "type": "html",
+      "wrapperClass": "article-wrapper-four",
+      "content": "Dagelijks werk ik met <strong>HTML</strong>, <strong>CSS</strong> en <strong>JavaScript</strong> en zet ik tools en frameworks in zoals <strong>Figma</strong>, <strong>Liquid</strong>, <strong>API’s</strong>, <strong>JSON</strong> en <strong>SvelteKit</strong> om mijn ideeën tot leven te brengen."
+    },
+    {
+      "id": 5,
+      "type": "cta",
+      "wrapperClass": "article-wrapper-five",
+      "content": "Benieuwd naar wat ik al gemaakt heb?",
+      "linkUrl": "/portfolio",
+      "linkText": "Bekijk mijn portfolio!"
+    }
+]
