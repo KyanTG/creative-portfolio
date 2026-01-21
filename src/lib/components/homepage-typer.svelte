@@ -1,5 +1,16 @@
 <script>
     import personal from '$lib/data/personal.json'
+
+    const homeTyper = document.querySelector('h1');
+        homeTyper.addEventListener('animationend', () => {
+        homeTyper.classList.add('done');
+    });
+
+
+    const homeTyperTwo = document.querySelector('h2');
+        homeTyperTwo.addEventListener('animationend', () => {
+        homeTyperTwo.classList.add('done');
+    });
 </script>
 
 
@@ -27,13 +38,13 @@
     width: 0;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 0.1vw solid var(--secondary-color-light);
+    border-right: 2px solid var(--secondary-color);
 }
 
 .home-typer-h1 {
     animation: typing-home-mobile 1s steps(15) forwards;
 
-    @media (min-width: 458px ) {
+    @media (min-width: 458px) {
         animation: typing-home 1s steps(15) forwards;
     }
 }

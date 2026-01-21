@@ -1,6 +1,7 @@
 <script>
     import Hometyper from '$lib/components/homepage-typer.svelte';
     import Information from '$lib/components/information.svelte';
+    import Header from '$lib/components/header.svelte';
 </script>
 
 <!-- <svelte:head> 
@@ -17,6 +18,8 @@
 </svelte:head> -->
 
 <main>
+    <Header/>
+
     <Hometyper/>
 
     <Information/>
