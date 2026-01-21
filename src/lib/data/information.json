@@ -28,8 +28,6 @@
       "id": 5,
       "type": "cta",
       "wrapperClass": "article-wrapper-five",
-      "content": "Benieuwd naar wat ik al gemaakt heb?",
-      "linkUrl": "/portfolio",
-      "linkText": "Bekijk mijn portfolio!"
+      "content": "Benieuwd naar wat ik al gemaakt heb?"
     }
 ]

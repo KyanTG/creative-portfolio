@@ -9,10 +9,10 @@
     --black: #000000; */
 
 
-    --primary-color: hsl(222.8, 88.9, 17.6); 
-    --secondary-color: hsl(31.9, 95.7, 54.5); 
-    --white: hsl(0, 0, 100);
-    --black: hsl(0, 0, 0);
+    --primary-color: hsl(222.8, 88.9%, 17.6%);
+    --secondary-color: hsl(31.9, 95.7%, 54.5%); 
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
 
     /* fonts */
 
@@ -68,7 +68,6 @@
 
 
 html {
-
     height: 100vh;
     
     * {
@@ -77,3 +76,4 @@ html {
         padding: 0;
       }
 }
+

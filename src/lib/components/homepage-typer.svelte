@@ -16,16 +16,18 @@
 }
 
 .h1-typer-style {
-    border-right: 2px solid var(--secondary-color-light); 
+    color: var(--secondary-color);
     overflow: hidden; 
     white-space: nowrap; 
+    border-right: 2px solid var(--secondary-color); 
 }
 
 .h2-typer-style {
+    color: var(--secondary-color);
     width: 0;
-    border-right: 0.1vw solid var(--secondary-color-light);
     overflow: hidden;
     white-space: nowrap;
+    border-right: 0.1vw solid var(--secondary-color-light);
 }
 
 .home-typer-h1 {

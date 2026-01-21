@@ -16,14 +16,17 @@
     </style>
 </svelte:head> -->
 
+<main>
+    <Hometyper/>
 
-<Hometyper/>
-
-<Information/>
-
+    <Information/>
+</main>
 
 <style>
 
-
+main {
+    padding-inline: 1rem;
+    background: var(--primary-color);
+}
 
 </style>
