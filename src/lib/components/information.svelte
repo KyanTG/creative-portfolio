@@ -163,15 +163,20 @@
         justify-content: center;
         flex-direction: column;
         width: clamp(17em, 25vw, 35em); 
-        height: clamp(17em, 25vw, 35em);
-        border-width: clamp(5px, 1vw, 15px);
+        height: clamp(17em, 25vw, 35em); 
+        border: clamp(5px, 1vw, 15px) solid var(--secondary-color);
         border-radius: 100%;
-        border-style: solid;
-        border-color: var(--secondary-color);
     }
 
     h3 {
         color: var(--secondary-color);
+    }
+
+    img {
+        width: clamp(17em, 25vw, 35em); 
+        height: clamp(17em, 25vw, 35em); 
+        border-radius: 100%;
+        object-fit: contain;
     }
 
 </style>
