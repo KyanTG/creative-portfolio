@@ -1,14 +1,15 @@
 <script>
-    const openButton = document.querySelector(".menu");
-    openButton.addEventListener("click", openM);
+    import { onMount } from 'svelte';
 
-    function openM() {  
-        const deNav = document.querySelector("nav");
-            deNav.classList.toggle("nav-open");
-            document.body.classList.toggle('menu-open'); 
-    }
+    onMount(() => {
+        const openB = document.querySelector(".menu");
 
-    const sluitButton = document.querySelector(".menu-open");
+        openB.onclick = () => {
+            const deN = document.querySelector("nav");
+            deN.classList.toggle("nav-open");
+            document.body.classList.toggle('menu-open');
+        };
+    });
 </script>
 
 <header>
@@ -49,9 +50,17 @@
         border-radius: 4rem;
     }
 
-    .menu-open header {
+    :global(.menu-open) header {
         width: 10rem;
         height: 10rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.nav-open {
+        display: block; 
     }
 
     .menu {

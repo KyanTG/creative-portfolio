@@ -1,15 +1,22 @@
 <script>
-    import personal from '$lib/data/personal.json'
+    import { onMount } from 'svelte';
+    import personal from '$lib/data/personal.json';
 
-    const homeTyper = document.querySelector('h1');
-        homeTyper.addEventListener('animationend', () => {
-        homeTyper.classList.add('done');
-    });
+    onMount(() => {
+        const homeTyper = document.querySelector('h1');
+        const homeTyperTwo = document.querySelector('h2');
 
+        if (homeTyper) {
+            homeTyper.addEventListener('animationend', () => {
+                homeTyper.classList.add('done');
+            });
+        }
 
-    const homeTyperTwo = document.querySelector('h2');
-        homeTyperTwo.addEventListener('animationend', () => {
-        homeTyperTwo.classList.add('done');
+        if (homeTyperTwo) {
+            homeTyperTwo.addEventListener('animationend', () => {
+                homeTyperTwo.classList.add('done');
+            });
+        }
     });
 </script>
 
