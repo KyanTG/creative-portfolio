@@ -88,11 +88,13 @@
 
 <section>
     <div>
-        {#each information as information}
+        {#each information as info}
             <div class="article-wrapper">
                 <article>
-                    <!-- <img src="{information.image}" alt="picture of kyan gijtenbeek"> -->
-                    <h3>{information.content}</h3>
+                    {#if info.image}
+                        <img src={info.image} alt="picture of {info.content}">
+                    {/if}
+                    <h3>{info.content}</h3>
                 </article>
             </div>
         {/each}
@@ -102,17 +104,16 @@
 <style>
 
     section {
-        overflow: hidden; 
         background: var(--main-color-normal);
         margin-block: 34vh;
     }
-
+/* 
     div:nth-of-type(1) {
         display: flex;
         flex-direction: row;
         width: 500vw; 
         height: 100vh;
-    }
+    } */
 
 
 
