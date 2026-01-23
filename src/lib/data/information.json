@@ -3,7 +3,7 @@
       "id": 1,
       "type": "profile",
       "wrapperClass": "article-wrapper-one",
-      "image": "/assets/background-clear-me.png",
+      "image": "src/lib/assets/background-clear-me.png",
       "content": "Kyan Gijtenbeek"
     },
     {

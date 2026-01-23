@@ -104,6 +104,7 @@
 <style>
 
     section {
+        overflow: hidden;
         background: var(--main-color-normal);
         margin-block: 34vh;
     }
