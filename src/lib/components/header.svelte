@@ -49,6 +49,11 @@
         border-radius: 4rem;
     }
 
+    .menu-open header {
+        width: 10rem;
+        height: 10rem;
+    }
+
     .menu {
         display: grid;
         grid-template-rows: repeat(4, 1fr);
