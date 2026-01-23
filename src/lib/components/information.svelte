@@ -8,173 +8,81 @@
     
 
     onMount(() => {
-        onMount(() => {
-
-const horizontal = document.querySelector(".horizontal-scroll-sec");
-
-
-
-function scrollAmount() {
-
-let horizontalScrollWidth = horizontal.scrollWidth;
-
-return -(horizontalScrollWidth - window.innerWidth)
-
-}
-
-
-
-const scroller = gsap.to(horizontal, {
-
-x: scrollAmount,
-
-duration: 3,
-
-ease: "none"
-
-});
-
-
-
-ScrollTrigger.create({
-
-trigger: ".scroll-wrap",
-
-start: "top",
-
-end: () => `+=${scrollAmount() * -1}`,
-
-pin: true,
-
-animation: scroller,
-
-scrub: 1,
-
-// markers: true,
-
-invalidateOnRefresh: true
-
-});
-
-
-
-gsap.from(".article-wrapper-two", {
-
-y: 200,
-
-opacity: 0,
-
-duration: 1,
-
-ease: "power2.out",
-
-scrollTrigger: {
-
-trigger: ".article-wrapper-two",
-
-containerAnimation: scroller,
-
-start: "left center",
-
-end: "center center",
-
-scrub: true,
-
-}
-
-});
-
-
-
-gsap.from(".article-wrapper-three", {
-
-y: -200,
-
-opacity: 0,
-
-duration: 1,
-
-ease: "power2.out",
-
-scrollTrigger: {
-
-trigger: ".article-wrapper-three",
-
-containerAnimation: scroller,
-
-start: "left center",
-
-end: "center center",
-
-scrub: true,
-
-}
-
-});
-
-
-
-gsap.from(".article-wrapper-four", {
-
-y: 300,
-
-opacity: 0,
-
-duration: 1,
-
-ease: "rough",
-
-scrollTrigger: {
-
-trigger: ".article-wrapper-four",
-
-containerAnimation: scroller,
-
-start: "left center",
-
-end: "center center",
-
-scrub: true,
-
-}
-
-});
-
-
-
-gsap.from(".article-wrapper-five", {
-
-y: -300,
-
-opacity: 0,
-
-duration: 1,
-
-ease: "power2.out",
-
-scrollTrigger: {
-
-trigger: ".article-wrapper-five",
-
-containerAnimation: scroller,
-
-start: "left center",
-
-end: "center center",
-
-scrub: true,
-
-}
-
-});
-
-
-
-})
+        const horizontal = document.querySelector(".horizontal-scroll-sec");
+
+        function scrollAmount() {
+            let horizontalScrollWidth = horizontal.scrollWidth;
+            return -(horizontalScrollWidth - window.innerWidth)
+        }
+
+        const scroller = gsap.to(horizontal, {
+            x: scrollAmount,
+            duration: 3,
+            ease: "none"
+        });
+
+        ScrollTrigger.create({
+            trigger: ".scroll-wrap",
+            start: "top",
+            end: () => `+=${scrollAmount() * -1}`,
+            pin: true,
+            animation: scroller,
+            scrub: 1,
+            invalidateOnRefresh: true
+        });
+
+        gsap.from(".article-wrapper-two", {
+            y: 200,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+            trigger: ".article-wrapper-two",
+            containerAnimation: scroller,
+            start: "left center",
+            end: "center center",
+            scrub: true,
+        }});
+
+        gsap.from(".article-wrapper-three", {
+            y: -200,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+            trigger: ".article-wrapper-three",
+            containerAnimation: scroller,
+            start: "left center",
+            end: "center center",
+            scrub: true,
+        }});
+
+        gsap.from(".article-wrapper-four", {
+            y: 300,
+            opacity: 0,
+            duration: 1,
+            ease: "rough",
+            scrollTrigger: {
+            trigger: ".article-wrapper-four",
+            containerAnimation: scroller,
+            start: "left center",
+            end: "center center",
+            scrub: true,
+        }});
+
+        gsap.from(".article-wrapper-five", {
+            y: -300,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+            trigger: ".article-wrapper-five",
+            containerAnimation: scroller,
+            start: "left center",
+            end: "center center",
+            scrub: true,
+        }});
     })
-
-
-
 
 </script>
 
