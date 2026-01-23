@@ -158,14 +158,13 @@
     } */
 
     article {
-        width: clamp(17em, 25vw, 35em); 
-        height: clamp(17em, 25vw, 35em);
-        border-width: clamp(5px, 1vw, 15px);
-        
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        width: clamp(17em, 25vw, 35em); 
+        height: clamp(17em, 25vw, 35em);
+        border-width: clamp(5px, 1vw, 15px);
         border-radius: 100%;
         border-style: solid;
         border-color: var(--secondary-color);
