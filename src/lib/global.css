@@ -47,23 +47,9 @@
     }
 
     p {
-        font-family: var(--main-font-regular);
-        font-size: 0.9em;
+        font-family: var(--primary-font);
         line-height: 1.4;
-        
-        @media ( min-width: 700px ) {
-            font-size: 1.1em;
-        }
-        
-        @media ( min-width: 1000px ) {
-            font-size: 1.3em;
-        }
-        
-        @media ( min-width: 1300px ) {
-            font-size: 1.5em;
-        }
     }
-}
 
 
 
@@ -76,4 +62,4 @@ html {
         padding: 0;
       }
 }
-
+}

@@ -86,37 +86,43 @@
 
 </script>
 
-<section>
-    <div>
-        {#each information as info}
-            <div class="article-wrapper">
-                <article>
-                    {#if info.image}
-                        <img src={info.image} alt="picture of {info.content}">
-                    {/if}
-                    <h3>{info.content}</h3>
-                </article>
-            </div>
-        {/each}
-    </div>
-</section>
+<div class="scroll-wrap">
+    <section class="horizontal-scroll-sec">
+    
+    {#each information as info, i}
+      <div class="article-wrapper article-wrapper-{i + 1}">
+        <article class="article-style article-style-{i + 1}">
+
+            {#if info.image}
+                <img src={info.image} alt="Profile" id="foto-kyan">
+            {/if}
+
+            {#if info.header}
+                <h3 class="header-article">{info.header}</h3>
+            {/if}
+
+            {#if info.text}
+                <p class="article-tekst">{@html info.text}</p>
+            {/if}
+
+            {#if info.link}
+                <a id="article-portfolio-link" href={info.link}>Bekijk mijn portfolio!</a>
+            {/if}
+
+        </article>
+      </div>
+    {/each}
+
+    </section>
+</div>
 
 <style>
 
     section {
         overflow: hidden;
-        background: var(--main-color-normal);
+        background: var(--primary-color);
         margin-block: 34vh;
     }
-/* 
-    div:nth-of-type(1) {
-        display: flex;
-        flex-direction: row;
-        width: 500vw; 
-        height: 100vh;
-    } */
-
-
 
     .article-wrapper {
         display: flex;
@@ -125,39 +131,34 @@
         width: 100vw;
         height: 100vh;
     }
-    
-    /* article {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 17.188em;
-        height: 17.188em;
-        padding: 0.5em;
+
+    .article-style-1 {
+        position: relative;
+        background: var(--secondary-color);
+    }
+
+    img {   
+        width: clamp(17em, 25vw, 35em); 
+        height: clamp(17em, 25vw, 35em); 
         border-radius: 100%;
-        border: 5px solid var(--secondary-color); 
+        object-fit: contain;
+    }
 
+    .header-article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        color: var(--primary-color);
+        background: var(--secondary-color);
+        width: 10em;
+        height: 10em;
+        border-radius: 4em;
+        corner-shape: scoop;
+    }
+    
 
-         @media ( min-width: 700px ) {
-            width: 25em;
-            height: 25em;
-            border: 10px solid var(--secondary-color);
-        }
-
-        @media ( min-width: 1000px ) {
-            width: 30em;
-            height: 30em;
-            border: 12.5px solid var(--secondary-color);
-        }
-
-        @media ( min-width: 1300px ) {
-            height: 35em;
-            width: 35em;
-            border: 15px solid var(--secondary-color);
-        }
-    } */
-
-    article {
+    .article-style {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -168,15 +169,12 @@
         border-radius: 100%;
     }
 
-    h3 {
+    p {
         color: var(--secondary-color);
-    }
-
-    img {
-        width: clamp(17em, 25vw, 35em); 
-        height: clamp(17em, 25vw, 35em); 
-        border-radius: 100%;
-        object-fit: contain;
-    }
+        font-size: clamp(1rem, 0.8rem + 1vw, 1.2rem); 
+        max-width: clamp(170px, 100px + 10vw, 247px);
+        margin-left: 0;
+        margin-top: 1rem;
+}
 
 </style>
