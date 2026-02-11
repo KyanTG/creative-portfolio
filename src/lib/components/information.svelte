@@ -11,12 +11,9 @@
 
     onMount(() => {
         let ctx = gsap.context(() => {
-            // 1. Horizontal Scroll Setup
             const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
-            const totalScroll = -100 * (articles.length - 1);
-
             const scroller = gsap.to(articles, {
-                xPercent: totalScroll, 
+                xPercent: -100 * (articles.length - 1), 
                 ease: "none",
             });
 
@@ -30,15 +27,11 @@
                 invalidateOnRefresh: true
             });
 
-            // 2. Vertical "Fly In" Animation Setup
             articles.forEach((article, i) => {
                 if (i === 0) return; 
 
-                // Odd = 200 (Up), Even = -200 (Down)
                 const yDirection = (i % 2 !== 0) ? 200 : -200;
-                
-                // Target the NEW group wrapper so both border and text move together
-                const target = article.querySelector(".content-group");
+                const target = article.querySelector(".shape-mask");
 
                 gsap.from(target, {
                     y: yDirection,
@@ -64,28 +57,25 @@
 <div class="scroll-wrap" bind:this={triggerWrap}>
     <section class="horizontal-scroll-sec" bind:this={scrollContainer}>
     {#each information as info, i}
-      <div class="article-wrapper">
-        
-        <div class="content-group">
-            
-            <div class="animated-shape"></div>
-            
-            <article class="article-style">
-                {#if info.image}
-                    <img src={info.image} alt="Profile" id="foto-kyan">
-                {/if}
+    <div class="article-wrapper">
+        <div class="shape-mask">
+            <div class="content-stabilizer">
+                <article class="article-style">
+                    {#if info.image}
+                        <img src={info.image} alt="Profile" id="foto-kyan">
+                    {/if}
 
-                {#if info.text}
-                    <p class="article-tekst">{@html info.text}</p>
-                {/if}
+                    {#if info.text}
+                        <p class="article-tekst">{@html info.text}</p>
+                    {/if}
 
-                {#if info.link}
-                    <a id="article-portfolio-link" href={info.link}>Bekijk mijn portfolio!</a>
-                {/if}
-            </article>
+                    {#if info.link}
+                        <a id="article-portfolio-link" href={info.link}>Bekijk mijn portfolio!</a>
+                    {/if}
+                </article>
+            </div>
         </div>
-
-      </div>
+    </div>
     {/each}
     </section>
 </div>
@@ -117,47 +107,35 @@
         flex-shrink: 0;
     }
 
-    /* --- NEW CSS LOGIC --- */
-
-    /* The Group: Holds everything together for the Up/Down animation */
-    .content-group {
+    .shape-mask {
         position: relative;
         width: clamp(17em, 25vw, 45em); 
         height: clamp(17em, 25vw, 45em); 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        overflow: hidden; 
+        border: clamp(5px, 1vw, 15px) solid var(--secondary-color);
+        animation: cornerShapes 5s infinite linear;
     }
 
-    /* The Spinner: Absolutely positioned behind the content */
-    .animated-shape {
-        position: absolute;
-        top: 0;
-        left: 0;
+    .content-stabilizer {
         width: 100%;
         height: 100%;
-        border: clamp(5px, 1vw, 15px) solid var(--secondary-color);
-        border-radius: 100%;
-        animation: cornerShapes 5s infinite linear; /* SPINNING HAPPENS HERE */
-        pointer-events: none; /* Ensures you can click links through it */
+        animation: counterRotate 5s infinite linear;
     }
 
-    /* The Content: Sitting on top, NOT spinning */
     .article-style {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
         width: 100%;
         height: 100%;
-        z-index: 1; /* Puts text above the border */
-        /* Note: No border or animation here anymore */
+        padding: 3rem; 
+        box-sizing: border-box; 
     }
 
     img {   
         width: clamp(17em, 25vw, 35em); 
         height: clamp(17em, 25vw, 35em); 
-        border-radius: 100%;
         object-fit: contain;
     }
 
@@ -167,13 +145,36 @@
         max-width: clamp(170px, 100px + 10vw, 247px);
         margin-left: 0;
         margin-top: 1rem;
+        text-align: center;
     }
 
     @keyframes cornerShapes {
-      0% { border-radius: 20em; corner-shape: squircle; rotate: 0deg; }
-      25% { border-radius: 100%; corner-shape: round; }
-      50% { border-radius: 20em; corner-shape: squircle; }
-      75% { border-radius: 100%; corner-shape: round; }
-      100% { border-radius: 20em; corner-shape: squircle; rotate: 360deg; }
+      0% {
+        border-radius: 20em;
+        corner-shape: squircle;
+        rotate: 0deg;
+      }
+      25% {
+        border-radius: 100%;
+        corner-shape: round;
+      }
+      50% {
+        border-radius: 20em;
+        corner-shape: squircle;
+      }
+      75% {
+        border-radius: 100%;
+        corner-shape: round;
+      }
+      100% {
+        border-radius: 20em;
+        corner-shape: squircle;
+        rotate: 360deg;
+      }
+    }
+
+    @keyframes counterRotate {
+      0% { rotate: 0deg; }
+      100% { rotate: -360deg; }
     }
 </style>
