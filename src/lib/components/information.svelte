@@ -104,17 +104,12 @@
         height: 100%; 
     }
 
-    section { 
-        background: var(--primary-color); 
-    }
-
     .article-wrapper { 
         display: flex; 
         align-items: center; 
         justify-content: center; 
         width: 100vw; 
         height: 100vh; 
-        flex-shrink: 0; 
     }
 
     .article-style {
@@ -125,7 +120,6 @@
         width: 100%;
         height: 100%;
         padding: 2rem;
-        box-sizing: border-box;
     }
 
     img {   
@@ -140,7 +134,6 @@
         max-width: clamp(170px, 100px + 10vw, 247px);
         margin-left: 0;
         margin-top: 1rem;
-        text-align: center;
     }
 
     .shape-mask {
