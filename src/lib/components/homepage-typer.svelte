@@ -1,29 +1,17 @@
 <script>
-    import { onMount } from 'svelte';
     import personal from '$lib/data/personal.json';
-
-    onMount(() => {
-        const homeTyper = document.querySelector('h1');
-        const homeTyperTwo = document.querySelector('h2');
-
-        if (homeTyper) {
-            homeTyper.addEventListener('animationend', () => {
-                homeTyper.classList.add('done');
-            });
-        }
-
-        if (homeTyperTwo) {
-            homeTyperTwo.addEventListener('animationend', () => {
-                homeTyperTwo.classList.add('done');
-            });
-        }
-    });
+    let h1Done = false;
+    let h2Done = false;
 </script>
 
 
 <section class="personal">
-    <h1 class="home-typer-h1 h1-typer-style">{personal.name}</h1>
-    <h2 class="home-typer-h2 h2-typer-style">{personal.role}</h2>
+    <h1 class="home-typer-h1 h1-typer-style" class:done={h1Done} on:animationend={() => h1Done = true}>
+        {personal.name}
+    </h1>
+    <h2 class="home-typer-h2 h2-typer-style" class:done={h2Done} on:animationend={() => h2Done = true}>
+        {personal.role}
+    </h2>
 </section>
 
 
@@ -46,6 +34,10 @@
     overflow: hidden;
     white-space: nowrap;
     border-right: 2px solid var(--secondary-color);
+}
+
+.done {
+    border-right: none;
 }
 
 .home-typer-h1 {

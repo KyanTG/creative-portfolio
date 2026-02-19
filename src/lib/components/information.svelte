@@ -13,7 +13,6 @@
         let ctx = gsap.context(() => {
             const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
             
-            // Horizontal Scroll
             const scroller = gsap.to(articles, {
                 xPercent: -100 * (articles.length - 1), 
                 ease: "none",
@@ -29,14 +28,9 @@
                 invalidateOnRefresh: true
             });
 
-            // Vertical "Fly In" Animation for ALL articles
             articles.forEach((article, i) => {
-                // Determine direction (Up/Down)
                 const yDirection = (i % 2 !== 0) ? 200 : -200;
-                
-                // Select the element to animate (works for both Types A and B)
                 const target = article.querySelector(".anim-target");
-
                 gsap.from(target, {
                     y: yDirection,
                     opacity: 0,
@@ -52,8 +46,8 @@
                 });
             });
 
-        }, scrollContainer);
-
+        }, 
+        scrollContainer);
         return () => ctx.revert(); 
     });
 </script>
@@ -79,9 +73,15 @@
                 <div class="animated-shape"></div>
                 
                 <article class="article-style">
-                    {#if info.image}<img src={info.image} alt="Project">{/if}
-                    {#if info.text}<p class="article-tekst">{@html info.text}</p>{/if}
-                    {#if info.link}<a id="article-portfolio-link" href={info.link}>Bekijk mijn portfolio!</a>{/if}
+                    {#if info.image}
+                        <img src={info.image} alt="Project">
+                    {/if}
+                    {#if info.text}
+                        <p class="article-tekst">{@html info.text}</p>
+                    {/if}
+                    {#if info.link}
+                        <a id="article-portfolio-link" href={info.link}>Bekijk mijn portfolio!</a>
+                    {/if}
                 </article>
             </div>
         {/if}
@@ -123,43 +123,63 @@
     }
 
     img {   
-        width: clamp(17em, 25vw, 35em); 
-        height: clamp(17em, 25vw, 35em); 
+        width: min(70vw, 70vh); 
+        height: min(70vw, 70vh);
         object-fit: contain;
+        margin-top: 2rem;
     }
-    
+
     p {
         color: var(--secondary-color);
-        font-size: clamp(1rem, 0.8rem + 1vw, 1.2rem); 
-        max-width: clamp(170px, 100px + 10vw, 247px);
-        margin-left: 0;
+        font-size: clamp(0.9rem, 0.7rem + 1vw, 1.1rem); 
+        max-width: 85%;
+        text-align: center;
         margin-top: 1rem;
+    }
+
+    #article-portfolio-link {
+        margin-top: 0.5rem;
+        color: var(--secondary-color);
     }
 
     .shape-mask {
         position: relative;
-        width: clamp(17em, 25vw, 45em); 
-        height: clamp(17em, 25vw, 45em); 
+        /* Identical width/height, capped by 70vh */
+        width: min(70vw, 70vh); 
+        height: min(70vw, 70vh);
         overflow: hidden; 
         isolation: isolate; 
         border: clamp(5px, 1vw, 15px) solid var(--secondary-color);
         animation: cornerShapes 5s infinite linear;
+
+        @media (min-width: 1124px) {
+            width: min(40vw, 70vh);
+            height: min(40vw, 70vh);
+        }
     }
     
     .content-stabilizer {
         width: 100%;
         height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         animation: counterRotate 5s infinite linear;
         background: var(--primary-color); 
     }
 
     .content-group {
         position: relative;
-        width: clamp(17em, 25vw, 45em); 
-        height: clamp(17em, 25vw, 45em); 
+        width: min(70vw, 70vh); 
+        height: min(70vw, 70vh);
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media (min-width: 1124px) {
+            width: min(40vw, 70vh);
+            height: min(40vw, 70vh);
+        }
     }
 
     .animated-shape {
@@ -186,6 +206,7 @@
       75% { border-radius: 100%; corner-shape: round; }
       100% { border-radius: 20em; corner-shape: squircle; rotate: 360deg; }
     }
+    
     @keyframes counterRotate {
       0% { rotate: 0deg; }
       100% { rotate: -360deg; }
