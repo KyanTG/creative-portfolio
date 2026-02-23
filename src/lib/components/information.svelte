@@ -1,16 +1,15 @@
 <script>
-    import { gsap } from "gsap";
     import { onMount } from "svelte";
     import information from '$lib/data/information.json';
-
-    gsap.registerPlugin(ScrollTrigger);
+    import gsap from 'gsap'; 
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
     let scrollContainer;
     let triggerWrap; 
 
     onMount(() => {
         gsap.registerPlugin(ScrollTrigger);
-        
+
         let ctx = gsap.context(() => {
             const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
             
