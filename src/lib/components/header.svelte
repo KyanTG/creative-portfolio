@@ -37,12 +37,14 @@
 <style>
 
     :global(.menu-open) header {
-        width: 10rem;
-        height: 10rem;
+        width: 13rem;
+        height: 13rem;
     }
 
     header {
     position: fixed;
+    height: 4.5rem;
+    width: 4.5rem;
     z-index: 10; 
     right: 20px;
     top: 20px;
@@ -67,27 +69,43 @@
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 50%;
+    box-sizing: border-box;
     padding: 0 17.5px;
 }
 
-.menu-open header {
-    width: 10rem;
-    height: 10rem;
+header nav {
+    height: 100%;
+    width: 100%;
 }
 
 header nav ul {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 1rem;
-    visibility: hidden;
+    height: 100%;
     padding: 0;
     margin: 0;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    visibility: hidden;
 }
-nav.nav-open ul {
+
+:global(nav.nav-open) ul {
     visibility: visible;
+}
+
+header nav ul li:nth-of-type(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+header nav ul li:nth-of-type(2) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+header nav ul li:nth-of-type(3) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
 }
 
 header li {
