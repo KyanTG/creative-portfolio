@@ -34,6 +34,7 @@
     overflow: hidden;
     white-space: nowrap;
     border-right: 2px solid var(--secondary-color);
+    visibility: hidden;
 }
 
 .done {
@@ -69,13 +70,13 @@
 }
 
 @keyframes typing-home-two {
-    from { width: 0; }
-    to { width: 76%; }
+    from { width: 0; visibility: visible; }
+    to { width: 76%; visibility: visible; }
 }
 
 @keyframes typing-home-two-mobile {
-    from { width: 0; }
-    to { width: 100%; }
+    from { width: 0; visibility: visible; }
+    to { width: 100%; visibility: visible; }
 }
 
 </style>

@@ -12,7 +12,6 @@
 
         let ctx = gsap.context(() => {
             const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
-            
             const scroller = gsap.to(articles, {
                 xPercent: -100 * (articles.length - 1), 
                 ease: "none",

@@ -4,19 +4,6 @@
     import Header from '$lib/components/header.svelte';
 </script>
 
-<!-- <svelte:head> 
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-        
-    </style>
-</svelte:head> -->
-
 <main>
     <Header/>
 
@@ -29,7 +16,7 @@
 
 main {
     padding-inline: 1rem;
-    background: var(--primary-color);
+    /* background: var(--primary-color); */
 }
 
 </style>

@@ -13,7 +13,6 @@
 </script>
 
 <header>
-    <!-- hamburger menu -->
     <button class="menu" tabindex="0" aria-label="Menu"> 
         <span></span>
         <span></span>
@@ -23,92 +22,124 @@
 
     <nav>
         <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/portfolio">Portfolio</a>
-          </li>
-          <li>
-          </li>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/portfolio">Portfolio</a>
+            </li>
+            <li>
+            </li>
         </ul>
-      </nav>
+    </nav>
 </header>
 
 <style>
-    header {
-        position: fixed;
-        height: 4.5rem;
-        width: 4.5rem;
-        background:var(--primary-color);
-        z-index: 10; 
-        right: 20px;
-        top: 20px;
-        padding-inline: 20px;
-        padding-block: 20px;
-        border: 3px solid var(--primary-color);
-        border-radius: 4rem;
-    }
 
     :global(.menu-open) header {
         width: 10rem;
         height: 10rem;
     }
 
-    nav {
-        display: none;
-    }
-
-    nav.nav-open {
-        display: block; 
+    header {
+    position: fixed;
+    z-index: 10; 
+    right: 20px;
+    top: 20px;
+    padding-inline: 20px;
+    padding-block: 20px;
+    background-color:var(--primary-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 50px;
+    /* transition: all 0.3s ease; */
     }
 
     .menu {
-        display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-columns: repeat(4, 1fr);
-        position: absolute;
-        background: var(--secondary-color);
-        height: 4.5rem;
-        width: 4.5rem;
-        right: 20px;
-        row-gap: 5px;
-        column-gap: 5px;
-        z-index: 10;
-        border: none;
-        border-radius: 50%;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 5px;
+    position: absolute;
+    right: 20px;
+    z-index: 10;
+    background-color: var(--secondary-color);
+    border: none;
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    padding: 0 17.5px;
+}
 
-    .menu:hover {
-        cursor: pointer;
-    }
+.menu-open header {
+    width: 10rem;
+    height: 10rem;
+}
 
-    .menu span {
-        display: block;
-        background: var(--primary-color);
-        height: 1rem;
-        width: 1rem;
-        border-radius: 100%;
-        cursor: pointer;
-    }
+header nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    visibility: hidden;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+nav.nav-open ul {
+    visibility: visible;
+}
 
-    .menu span:nth-of-type(1)  {
-        grid-column: 2/3;
-        grid-row: 2/3;
-    }
+header li {
+    list-style: none;
+    color: var(--primary-color);
+    background: var(--secondary-color);
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    transition: transform 0.3s ease; 
+}
 
-    .menu span:nth-of-type(2)  {
-        grid-column: 3/4;
-        grid-row: 2/3;
-    }
+header a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
 
-    .menu span:nth-of-type(3)  {
-        grid-column: 2/3;
-        grid-row: 3/4;
-    }
+/* .menu:focus {
+    outline-offset: 5px;
+    outline: 2px solid var(--secondary-color-light);
+} */
 
-    .menu span:nth-of-type(4)  {
-        grid-column: 3/4;
-        grid-row: 3/4;
-    }
+.menu:hover {
+    cursor: pointer;
+}
+
+.menu span {
+    display: block;
+    background: var(--primary-color);
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.menu-open .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-open .menu span {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
 </style>
