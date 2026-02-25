@@ -37,8 +37,8 @@
 <style>
 
     :global(.menu-open) header {
-        width: 13rem;
-        height: 13rem;
+        width: 10rem;
+        height: 10rem;
     }
 
     header {
@@ -48,12 +48,9 @@
     z-index: 10; 
     right: 20px;
     top: 20px;
-    padding-inline: 20px;
-    padding-block: 20px;
-    background-color:var(--primary-color);
-    border: 3px solid var(--primary-color);
+    border: none;
     border-radius: 50px;
-    /* transition: all 0.3s ease; */
+    transition: all 0.3s ease;
     }
 
     .menu {
@@ -62,7 +59,8 @@
     align-content: center;
     gap: 5px;
     position: absolute;
-    right: 20px;
+    top: 0;
+    right: 0;
     z-index: 10;
     background-color: var(--secondary-color);
     border: none;
@@ -82,10 +80,8 @@ header nav ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    gap: 0.5rem;
     height: 100%;
-    padding: 0;
-    margin: 0;
     visibility: hidden;
 }
 
