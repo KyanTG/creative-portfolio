@@ -156,6 +156,8 @@
         opacity: 1;
     }
 
+    /* When opened for the animation */
+
     header nav.nav-open ul li:nth-of-type(1) { 
         transform: translate(0, 0) scale(1);
         transition-delay: 0.05s; 
