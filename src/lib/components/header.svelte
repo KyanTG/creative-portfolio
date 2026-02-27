@@ -1,159 +1,174 @@
 <script>
-    import { onMount } from 'svelte';
+    let isOpen = false;
 
-    onMount(() => {
-        const openB = document.querySelector(".menu");
-
-        openB.onclick = () => {
-            const deN = document.querySelector("nav");
-            deN.classList.toggle("nav-open");
-            document.body.classList.toggle('menu-open');
-        };
-    });
+    function toggleMenu() {
+        isOpen = !isOpen;
+        document.body.classList.toggle('menu-open'); 
+    }
 </script>
 
-<header>
-    <button class="menu" tabindex="0" aria-label="Menu"> 
+<header class:menu-open={isOpen}>
+    <button class="menu" on:click={toggleMenu} tabindex="0" aria-label="Menu"> 
         <span></span>
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <nav>
+    <nav class:nav-open={isOpen}>
         <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/portfolio">Portfolio</a>
-            </li>
-            <li>
-            </li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li></li>
         </ul>
     </nav>
 </header>
 
 <style>
-
-    :global(.menu-open) header {
-        width: 10rem;
-        height: 10rem;
+    header {
+        position: fixed;
+        height: 4.5rem;
+        width: 4.5rem;
+        z-index: 10; 
+        right: 20px;
+        top: 20px;
+        border: none;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        transition-delay: 0.3s;
     }
 
-    header {
-    position: fixed;
-    height: 4.5rem;
-    width: 4.5rem;
-    z-index: 10; 
-    right: 20px;
-    top: 20px;
-    border: none;
-    border-radius: 50px;
-    transition: all 0.3s ease;
+    header.menu-open {
+        width: 9.5rem;
+        height: 9.5rem;
+        transition-delay: 0s; 
     }
 
     .menu {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    gap: 5px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 10;
-    background-color: var(--secondary-color);
-    border: none;
-    height: 4.5rem;
-    width: 4.5rem;
-    border-radius: 50%;
-    box-sizing: border-box;
-    padding: 0 17.5px;
-}
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        gap: 5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        background-color: var(--secondary-color, #eee);
+        border: none;
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        box-sizing: border-box;
+        padding: 0 17.5px;
+        cursor: pointer;
+    }
 
-header nav {
-    height: 100%;
-    width: 100%;
-}
+    .menu span {
+        display: block;
+        background: var(--primary-color, #333);
+        height: 16px;
+        width: 16px;
+        border-radius: 100%;
+    }
 
-header nav ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0.5rem;
-    height: 100%;
-    visibility: hidden;
-}
+    header nav {
+        height: 100%;
+        width: 100%;
+    }
 
-:global(nav.nav-open) ul {
-    visibility: visible;
-}
+    header nav ul {
+        display: grid;
+        grid-template-columns: 4.5rem 4.5rem; 
+        grid-template-rows: 4.5rem 4.5rem;
+        gap: 0.5rem;
+        width: 9.5rem;
+        height: 9.5rem;
+        margin: 0;
+        padding: 0;
+        pointer-events: none; 
+    }
 
-header nav ul li:nth-of-type(1) {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
+    nav.nav-open ul {
+        pointer-events: auto;
+    }
 
-header nav ul li:nth-of-type(2) {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-}
+    header li {
+        list-style: none;
+        background: var(--secondary-color, #eee);
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        transition: all 0.3s ease-out;
+    }
 
-header nav ul li:nth-of-type(3) {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-}
+    header a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-color, #333);
+        font-size: 16px;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+    }
 
-header li {
-    list-style: none;
-    color: var(--primary-color);
-    background: var(--secondary-color);
-    height: 4.5rem;
-    width: 4.5rem;
-    border-radius: 50%;
-    transition: transform 0.3s ease; 
-}
+    header nav ul li:nth-of-type(1) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        transform: translate(5rem, 0) scale(0);
+    }
 
-header a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-color);
-    font-size: 16px;
-    letter-spacing: -0.5px;
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
-}
+    header nav ul li:nth-of-type(2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        transform: translate(5rem, -5rem) scale(0);
+    }
 
-/* .menu:focus {
-    outline-offset: 5px;
-    outline: 2px solid var(--secondary-color-light);
-} */
+    header nav ul li:nth-of-type(3) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        transform: translate(0, -2rem) scale(0);
+    }
 
-.menu:hover {
-    cursor: pointer;
-}
+    header nav ul li {
+        opacity: 0;
+    }
 
-.menu span {
-    display: block;
-    background: var(--primary-color);
-    height: 16px;
-    width: 16px;
-    border-radius: 100%;
-    cursor: pointer;
-}
+    header nav ul li:nth-of-type(1) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        transform: translate(5rem, 0) scale(0.5);
+    }
 
-.menu-open .menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    header nav ul li:nth-of-type(2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        transform: translate(5rem, -5rem) scale(0.5);
+    }
 
-.menu-open .menu span {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
+    header nav ul li:nth-of-type(3) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        transform: translate(0, -5rem) scale(0.5);
+    }
+
+    header nav.nav-open ul li {
+        opacity: 1;
+    }
+
+    header nav.nav-open ul li:nth-of-type(1) { 
+        transform: translate(0, 0) scale(1);
+        transition-delay: 0.05s; 
+    }
+    
+    header nav.nav-open ul li:nth-of-type(2) { 
+        transform: translate(0, 0) scale(1);
+        transition-delay: 0.1s; 
+    }
+    
+    header nav.nav-open ul li:nth-of-type(3) { 
+        transform: translate(0, 0) scale(1);
+        transition-delay: 0.15s; 
+    }
+
 </style>
