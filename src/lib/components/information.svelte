@@ -12,12 +12,13 @@
 
         let ctx = gsap.context(() => {
             const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
+            
             const scroller = gsap.to(articles, {
                 xPercent: -100 * (articles.length - 1), 
                 ease: "none",
             });
 
-            ScrollTrigger.create({
+            const mainScroll = ScrollTrigger.create({
                 trigger: triggerWrap,
                 start: "top top",
                 end: () => "+=" + scrollContainer.scrollWidth,
@@ -27,7 +28,7 @@
                 invalidateOnRefresh: true
             });
 
-            articles.forEach((article, i) => {
+            articles.forEach((article, i) => {                
                 const yDirection = (i % 2 !== 0) ? 200 : -200;
                 const target = article.querySelector(".anim-target");
                 gsap.from(target, {
@@ -45,8 +46,27 @@
                 });
             });
 
-        }, 
-        scrollContainer);
+            scrollContainer.addEventListener('focusin', (e) => {
+                const wrapper = e.target.closest('.article-wrapper');
+                if (!wrapper) return;
+
+                const index = articles.indexOf(wrapper);
+                if (index === -1) return;
+
+                if (scrollContainer.scrollLeft !== 0) scrollContainer.scrollLeft = 0;
+                if (triggerWrap.scrollLeft !== 0) triggerWrap.scrollLeft = 0;
+
+                const progress = index / (articles.length - 1);
+                const scrollTarget = mainScroll.start + (mainScroll.end - mainScroll.start) * progress;
+
+                window.scrollTo({
+                    top: scrollTarget,
+                    behavior: 'auto' 
+                });
+            });
+
+        }, scrollContainer);
+        
         return () => ctx.revert(); 
     });
 </script>
@@ -59,7 +79,7 @@
         {#if i === 0}
             <div class="shape-mask anim-target">
                 <div class="content-stabilizer">
-                    <article class="article-style">
+                    <article class="article-style" tabindex="0">
                         {#if info.image}
                             <img src={info.image} alt="Profile" id="foto-kyan">
                         {/if}
@@ -71,7 +91,7 @@
             <div class="content-group anim-target">
                 <div class="animated-shape"></div>
                 
-                <article class="article-style">
+                <article class="article-style" tabindex="0">
                     {#if info.image}
                         <img src={info.image} alt="Project">
                     {/if}
@@ -143,7 +163,6 @@
 
     .shape-mask {
         position: relative;
-        /* Identical width/height, capped by 70vh */
         width: min(70vw, 70vh); 
         height: min(70vw, 70vh);
         overflow: hidden; 
