@@ -1,7 +1,22 @@
 [
     {
         "title": "Informaat",
-        "image": "src/lib/assets/information.png",
-        "description": "informatie over dit project"
+        "image": "src/lib/assets/informaat.png",
+        "description": "Description for Informaat"
+    },
+    {
+        "title": "Embassy of the Free Mind",
+        "image": "src/lib/assets/embassy-of-the-free-mind.png",
+        "description": "Description for Embassy of the Free Mind"
+    },
+    {
+        "title": "Mediahuis",
+        "image": "src/lib/assets/mediahuis.png",
+        "description": "Description for Mediahuis"
+    },
+    {
+        "title": "OnCollaboration",
+        "image": "src/lib/assets/oncollaboration.png",
+        "description": "Description for OnCollaboration"
     }
 ]
