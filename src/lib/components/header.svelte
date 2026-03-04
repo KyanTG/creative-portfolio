@@ -17,9 +17,15 @@
 
     <nav class:nav-open={isOpen}>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li></li>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/portfolio">Portfolio</a>
+            </li>
+            <li>
+                <a href="/contact">Contact</a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -69,6 +75,13 @@
         height: 16px;
         width: 16px;
         border-radius: 100%;
+    }
+
+    .menu-open span {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        inset: 26px 0px 0px 26px;
     }
 
     header nav {
@@ -155,8 +168,6 @@
     header nav.nav-open ul li {
         opacity: 1;
     }
-
-    /* When opened for the animation */
 
     header nav.nav-open ul li:nth-of-type(1) { 
         transform: translate(0, 0) scale(1);
