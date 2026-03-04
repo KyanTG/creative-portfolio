@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import information from '$lib/data/information.json';
+    import information from '$lib/data/personal.json';
     import gsap from 'gsap'; 
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -105,7 +105,7 @@
                         <p class="article-tekst">{@html info.text}</p>
                     {/if}
                     {#if info.link}
-                        <a id="article-portfolio-link" href={info.link}>Bekijk mijn portfolio!</a>
+                        <a id="article-portfolio-link" href={info.link}>Bekijk mijn projecten</a>
                     {/if}
                 </article>
             </div>

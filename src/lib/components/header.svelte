@@ -21,7 +21,7 @@
                 <a href="/">Home</a>
             </li>
             <li>
-                <a href="/portfolio">Portfolio</a>
+                <a href="/projecten">Projecten</a>
             </li>
             <li>
                 <a href="/contact">Contact</a>

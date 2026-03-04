@@ -1,5 +1,5 @@
 <script>
-    import personal from '$lib/data/personal.json';
+    import personal from '$lib/data/personal-header.json';
     let h1Done = false;
     let h2Done = false;
 </script>
