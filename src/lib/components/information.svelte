@@ -13,8 +13,14 @@
         let ctx = gsap.context(() => {
             const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
             
+            // Mobile-first: default is double space, desktop is single
+            let xPercentMultiplier = -200; // Default for mobile
+            if (window.matchMedia("(min-width: 1124px)").matches) {
+                xPercentMultiplier = -100; // Desktop
+            }
+
             const scroller = gsap.to(articles, {
-                xPercent: -100 * (articles.length - 1), 
+                xPercent: xPercentMultiplier * (articles.length - 1), 
                 ease: "none",
             });
 
@@ -129,7 +135,13 @@
         justify-content: center; 
         width: 100vw; 
         height: 100vh; 
-        margin-right: 100vw;
+        margin-right: 100vw; /* Mobile-first: double space by default */
+    }
+
+    @media (min-width: 1124px) {
+        .article-wrapper {
+            margin-right: 0; /* No extra space on desktop */
+        }
     }
 
     .article-style {
