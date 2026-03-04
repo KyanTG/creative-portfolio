@@ -1,3 +1,7 @@
+<script>
+    import ProjectsTyper from "$lib/components/projects-typer.svelte";
+</script>
+
 <main>
-    <p>testestest</p>
+    <ProjectsTyper />
 </main>
