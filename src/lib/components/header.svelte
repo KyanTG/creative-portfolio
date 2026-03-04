@@ -40,8 +40,7 @@
         top: 20px;
         border: none;
         border-radius: 50px;
-        transition: all 0.3s ease;
-        transition-delay: 0.3s;
+        transition: all 0.3s ease 0.3s;
     }
 
     header.menu-open {
@@ -72,15 +71,15 @@
     .menu span {
         display: block;
         background: var(--primary-color, #333);
-        height: 16px;
-        width: 16px;
+        height: 1rem;
+        width: 1rem;
         border-radius: 100%;
     }
 
     .menu-open span {
         position: absolute;
-        width: 20px;
-        height: 20px;
+        width: 1.25rem;
+        height: 1.25rem;
         inset: 26px 0px 0px 26px;
     }
 
