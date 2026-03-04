@@ -1,5 +1,7 @@
-{
-    "title": "Informaat",
-    "image": "src/lib/assets/information.png",
-    "description": "informatie over dit project"
-}
+[
+    {
+        "title": "Informaat",
+        "image": "src/lib/assets/information.png",
+        "description": "informatie over dit project"
+    }
+]

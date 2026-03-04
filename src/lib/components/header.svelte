@@ -100,6 +100,11 @@
         pointer-events: none; 
     }
 
+    .menu-open a {
+        font-size: 0.9rem;
+        letter-spacing: -4%;
+    }
+
     nav.nav-open ul {
         pointer-events: auto;
     }
