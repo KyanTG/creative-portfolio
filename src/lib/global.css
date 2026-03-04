@@ -24,6 +24,7 @@
         font-size: 10vw;
         font-weight: 800;
         text-transform: uppercase;
+        color: var(--secondary-color);
 
         @media ( min-width: 458px ) {
             font-size: 9vw;
@@ -34,6 +35,7 @@
         font-family: var(--primary-font);
         font-size: 1em;
         font-weight: 700;
+        color: var(--secondary-color);
     
         @media (min-width: 458px ) {
             font-size: 3.5vw;

@@ -22,14 +22,12 @@
 }
 
 .h1-typer-style {
-    color: var(--secondary-color);
     overflow: hidden; 
     white-space: nowrap; 
     border-right: 2px solid var(--secondary-color); 
 }
 
 .h2-typer-style {
-    color: var(--secondary-color);
     width: 0;
     overflow: hidden;
     white-space: nowrap;
