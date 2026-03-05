@@ -4,10 +4,10 @@
 
 <section class="project-articles">
     {#each projects as project}
-        <article class="project-article">
-            <h2>{project.title}</h2>
-            <p>{project.description}</p>
-        </article>
+        <div class="project-article">
+        <!-- change to picture with changed images to webp etc -->
+            <img class="project-image" src={project.image} alt={project.title} />
+        </div>
     {/each}
 </section>
 
