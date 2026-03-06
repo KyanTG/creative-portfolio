@@ -98,6 +98,7 @@
         margin: 0;
         padding: 0;
         pointer-events: none; 
+        visibility: hidden;
     }
 
     .menu-open a {
@@ -107,6 +108,7 @@
 
     nav.nav-open ul {
         pointer-events: auto;
+        visibility: visible;
     }
 
     header li {
