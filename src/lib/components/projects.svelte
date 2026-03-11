@@ -11,7 +11,9 @@
     <section class="project-articles">
         {#each projects as project}
             <div class="project-article">
-                <img class="project-image" src={project.image} alt={project.title} />
+                <a href={project.link} target="_blank">
+                    <img class="project-image" src={project.image} alt={project.title} />
+                </a>
                 <div class="content">
                     <h3>{project.title}</h3>
                 </div>
@@ -50,6 +52,7 @@
     }
 
     .content {
+        overflow: hidden;
         background: var(--primary-color);
         border-radius: 1rem;
         border: solid 0.25rem var(--secondary-color);
@@ -60,10 +63,24 @@
         z-index: 10;
         padding: 0.5rem 1rem;
         transform: translate(1rem, -40%);
-        transition: opacity 0.2s ease-in-out;
+        transition: width 0.3s ease-in-out;
+        transition-delay: 0.02s;
+        width: 0;
     }
 
     .project-article:hover .content {
+        opacity: 1;
+        width: 25rem;
+    }
+
+    h3 {
+        opacity: 0;
+        white-space: nowrap;
+        transition-delay: 0.2s;
+        transition: opacity 0.4s ease-in-out;
+    }
+
+    .project-article:hover .content h3 {
         opacity: 1;
     }
 
