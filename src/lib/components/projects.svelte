@@ -16,7 +16,7 @@
                 </a>
                 <div class="content">
                     <h3>{project.title}</h3>
-                </div>
+                </div>  
             </div>
         {/each}
     </section>
@@ -63,21 +63,21 @@
         z-index: 10;
         padding: 0.5rem 1rem;
         transform: translate(1rem, -40%);
-        transition: width 0.3s ease-in-out;
+        transition: width 1s ease-in-out;
         transition-delay: 0.02s;
         width: 0;
     }
 
     .project-article:hover .content {
         opacity: 1;
-        width: 25rem;
+        width: 100%;
+        max-width: fit-content;
     }
 
     h3 {
         opacity: 0;
         white-space: nowrap;
         transition-delay: 0.2s;
-        transition: opacity 0.4s ease-in-out;
     }
 
     .project-article:hover .content h3 {
