@@ -59,7 +59,7 @@
         opacity: 0;
         z-index: 10;
         padding: 0.5rem 1rem;
-        transform: translate(1rem, -1rem);
+        transform: translate(1rem, -40%);
         transition: opacity 0.2s ease-in-out;
     }
 
