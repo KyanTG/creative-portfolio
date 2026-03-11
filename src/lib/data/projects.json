@@ -2,21 +2,26 @@
     {
         "title": "Informaat",
         "image": "src/lib/assets/informaat.png",
-        "description": "Description for Informaat"
-    },
-    {
-        "title": "Embassy of the Free Mind",
-        "image": "src/lib/assets/embassy-of-the-free-mind.png",
-        "description": "Description for Embassy of the Free Mind"
+        "description": "Description for Informaat",
+        "website": "https://kyantg.github.io/the-startup-responsive-interactive-website/Informaat/informaat.html"
+
     },
     {
         "title": "Mediahuis",
         "image": "src/lib/assets/mediahuis.png",
-        "description": "Description for Mediahuis"
+        "description": "Description for Mediahuis",
+        "website": "https://pleasurable-ui-1yqs.onrender.com/radio-veronica"
+    },
+    {
+        "title": "Embassy of the Free Mind",
+        "image": "src/lib/assets/embassy-of-the-free-mind.png",
+        "description": "Description for Embassy of the Free Mind",
+        "website": "https://proof-of-concept-cu3y.onrender.com"
     },
     {
         "title": "OnCollaboration",
         "image": "src/lib/assets/oncollaboration.png",
-        "description": "Description for OnCollaboration"
+        "description": "Description for OnCollaboration",
+        "website": "https://oncollaboration.dev.fdnd.nl/"
     }
 ]
