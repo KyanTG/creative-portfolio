@@ -1,37 +1,19 @@
 <script>
-    import { onMount } from 'svelte';
     import projects from '$lib/data/projects.json';
-
-    onMount(() => {
-        window.onmousemove = function(e) {
-            const article = e.target.closest('.project-article');
-            const allContent = document.querySelectorAll('.content');
-
-            if (article) {
-                const muis = article.querySelector('.content');
-                if (muis) {
-                    muis.classList.add('visible');
-                    const offset = article.getBoundingClientRect();
-                    const tip = 15;
-                    muis.style.top = (e.clientY - offset.top + tip) + 'px';
-                    muis.style.left = (e.clientX - offset.left + tip) + 'px';
-                }
-            } else {
-                allContent.forEach(c => c.classList.remove('visible'));
-            }
-        }
-    });
 </script>
 
-<main>
+<main 
+    onmousemove={(e) => {
+        e.currentTarget.style.setProperty('--x', `${e.clientX}px`);
+        e.currentTarget.style.setProperty('--y', `${e.clientY}px`);
+    }}
+>
     <section class="project-articles">
         {#each projects as project}
             <div class="project-article">
-            <!-- change to picture with changed images to webp etc -->
                 <img class="project-image" src={project.image} alt={project.title} />
-                <!-- <a href={project.website} target="_blank">click</a> -->
                 <div class="content">
-                    <h2>{project.title}</h2>
+                    <h3>{project.title}</h3>
                 </div>
             </div>
         {/each}
@@ -39,9 +21,10 @@
 </main>
 
 <style>
-
     main {
         padding-inline: 1rem;
+        --x: 0px;
+        --y: 0px;
     }
 
     .project-articles {
@@ -54,27 +37,33 @@
     }
 
     .project-article {
-        position: relative; /* added to ensure content positions relative to this */
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         width: fit-content;
         height: fit-content;
         border-radius: 100%;
-        border: 1vw solid var(--primary-color);
+        border: 2vw solid var(--primary-color);
         outline: 1vw solid var(--secondary-color);
+        cursor: pointer;
     }
 
     .content {
-        position: absolute;
-        pointer-events: none; /* prevents content from flickering */
+        background: var(--primary-color);
+        border-radius: 1rem;
+        border: solid 0.25rem var(--secondary-color);
+        position: fixed;
+        left: var(--x);
+        top: var(--y);
         opacity: 0;
-        transition: opacity 0.2s ease-in-out;
         z-index: 10;
-        white-space: nowrap;
+        padding: 0.5rem 1rem;
+        transform: translate(1rem, -1rem);
+        transition: opacity 0.2s ease-in-out;
     }
 
-    .content.visible {
+    .project-article:hover .content {
         opacity: 1;
     }
 

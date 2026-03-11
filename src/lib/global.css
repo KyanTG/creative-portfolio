@@ -44,8 +44,9 @@
 
     h3 {
         font-family: var(--primary-font);
-        font-size: 1em;
+        font-size: 1.5em;
         font-weight: 500;
+        color: var(--secondary-color);
     }
 
     p {
