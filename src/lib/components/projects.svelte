@@ -2,18 +2,15 @@
     import projects from '$lib/data/projects.json';
 </script>
 
-<main 
-    onmousemove={(e) => {
-        e.currentTarget.style.setProperty('--x', `${e.clientX}px`);
-        e.currentTarget.style.setProperty('--y', `${e.clientY}px`);
-    }}
->
+<main onmousemove={(e) => { e.currentTarget.style.setProperty('--x', `${e.clientX}px`); e.currentTarget.style.setProperty('--y', `${e.clientY}px`);}}>
     <section class="project-articles">
         {#each projects as project}
             <div class="project-article">
-                <a href={project.link} target="_blank">
-                    <img class="project-image" src={project.image} alt={project.title} />
-                </a>
+                <div class="animation-wrapper">
+                    <a href={project.link} target="_blank">
+                        <img class="project-image" src={project.image} alt={project.title} />
+                    </a>
+                </div>
                 <div class="content">
                     <h3>{project.title}</h3>
                 </div>  
@@ -35,7 +32,7 @@
         grid-template-rows: repeat(4, 1fr);
         height: 400vh;
         place-items: center;
-        overflow: hidden;
+        padding-top: 20rem;
     }
 
     .project-article {
@@ -45,13 +42,35 @@
         justify-content: center;
         width: fit-content;
         height: fit-content;
-        border-radius: 100%;
-        border: 2vw solid var(--primary-color);
-        outline: 1vw solid var(--secondary-color);
         cursor: pointer;
     }
 
+    .animation-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        border: 2vw solid var(--primary-color);
+        outline: 1vw solid var(--secondary-color);
+        opacity: 0;
+        animation: dropper linear both;
+        animation-timeline: view();
+        animation-range: entry 10% entry 80%;
+    }
+
+    @keyframes dropper {
+        from { 
+            transform: translateY(600px); 
+            opacity: 0; 
+        }
+        to { 
+            transform: translateY(0); 
+            opacity: 1; 
+        }
+    }
+
     .content {
+        pointer-events: none;
         overflow: hidden;
         background: var(--primary-color);
         border-radius: 1rem;
@@ -104,10 +123,11 @@
         grid-row: 4 / 5;
     }
 
-    .project-image {
+    .project-image, a {
         width: 40vw;
         height: 40vw;
         object-fit: cover;
         border-radius: 50%;
     }
+
 </style>
