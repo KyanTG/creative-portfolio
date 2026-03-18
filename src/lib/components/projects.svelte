@@ -21,7 +21,6 @@
 
 <style>
     main {
-        padding-inline: 1rem;
         --x: 0px;
         --y: 0px;
     }
