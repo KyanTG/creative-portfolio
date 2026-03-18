@@ -5,7 +5,7 @@
 </script>
 
 
-<section class="personal">
+<section class="personal-header">
     <h1 class="home-typer-h1 h1-typer-style" class:done={h1Done} on:animationend={() => h1Done = true}>
         {personal.name}
     </h1>
@@ -17,30 +17,12 @@
 
 <style>
 
-.personal {
-    padding-top: 8rem;
-}
-
-.h1-typer-style {
-    overflow: hidden; 
-    white-space: nowrap; 
-    border-right: 2px solid var(--secondary-color); 
-}
-
-.h2-typer-style {
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid var(--secondary-color);
-    visibility: hidden;
-}
-
-.done {
-    border-right: none;
+.personal-header {
+    padding-top: 11rem;
 }
 
 .home-typer-h1 {
-    animation: typing-home-mobile 1s steps(15) forwards;
+    animation: typing-home-mobile-h1 1s steps(15) forwards;
 
     @media (min-width: 458px) {
         animation: typing-home 1s steps(15) forwards;
@@ -48,7 +30,7 @@
 }
 
 .home-typer-h2 {
-    animation: typing-home-two-mobile 3s steps(37) forwards;
+    animation: typing-home-mobile-h2 3s steps(37) forwards;
     animation-delay: 1s;
 
     @media ( min-width: 458px ) {
