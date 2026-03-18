@@ -16,7 +16,7 @@
     }
 
     .project-typer-h1 {
-        animation: typing-project-mobile-h1 1s steps(9) forwards;
+        animation: typing-project-mobile-h1 0.6s steps(9) forwards;
     }
 
     @keyframes typing-project-mobile-h1 {

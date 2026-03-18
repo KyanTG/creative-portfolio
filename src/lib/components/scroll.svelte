@@ -26,10 +26,13 @@
         align-items: center;
         width: 6rem;
         height: 10rem;
+        opacity: 0;
+        animation: fade-in 0.4s ease forwards;
+        animation-delay: 1s;
     }
 
     img {
-        animation: moving 1.6s ease-in-out infinite;
+        animation: moving 1.4s ease-in-out infinite;
         position: absolute;
         opacity: 0;
     }
@@ -57,5 +60,10 @@
         20% { opacity: 1; transform: translateY(0); }
         80% { opacity: 1; transform: translateY(0); }
         100% { opacity: 0; transform: translateY(0.4rem); }
+    }
+
+    @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 </style>
