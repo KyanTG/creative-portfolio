@@ -3,7 +3,12 @@
 
     function toggleMenu() {
         isOpen = !isOpen;
-        document.body.classList.toggle('menu-open'); 
+        document.body.classList.toggle('menu-open');
+    }
+
+    function closeMenu() {
+        isOpen = false;
+        document.body.classList.remove('menu-open');
     }
 </script>
 
@@ -18,13 +23,13 @@
     <nav class:nav-open={isOpen}>
         <ul>
             <li>
-                <a href="/">Home</a>
+                <a href="/" on:click={closeMenu}>Home</a>
             </li>
             <li>
-                <a href="/projects">Projecten</a>
+                <a href="/projects" on:click={closeMenu}>Projecten</a>
             </li>
             <li>
-                <a href="/contact">Contact</a>
+                <a href="/contact" on:click={closeMenu}>Contact</a>
             </li>
         </ul>
     </nav>
