@@ -22,7 +22,8 @@
 }
 
 .home-typer-h1 {
-    animation: typing-home-mobile-h1 1s steps(15) forwards;
+    width: 0;
+    animation: typing-home-mobile 1s steps(15) forwards;
 
     @media (min-width: 458px) {
         animation: typing-home 1s steps(15) forwards;
@@ -30,7 +31,8 @@
 }
 
 .home-typer-h2 {
-    animation: typing-home-mobile-h2 3s steps(37) forwards;
+    width: 0;
+    animation: typing-home-two-mobile 3s steps(37) forwards;
     animation-delay: 1s;
 
     @media ( min-width: 458px ) {
