@@ -7,7 +7,7 @@
         {#each projects as project}
             <div class="project-article">
                 <div class="animation-wrapper">
-                    <a href={project.link} target="_blank">
+                    <a href={`/projects/${project.slug}`}>
                         <img class="project-image" src={project.image} alt={project.title} />
                     </a>
                 </div>
@@ -29,9 +29,13 @@
         display: grid;
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(4, 1fr);
-        height: 400vh;
+        row-gap: 2rem;
         place-items: center;
         padding-top: 20rem;
+
+        @media ( min-width: 1024px ) {
+            row-gap: 4rem;
+        }
     }
 
     .project-article {
@@ -51,7 +55,6 @@
         border-radius: 100%;
         border: 2vw solid var(--primary-color);
         outline: 1vw solid var(--secondary-color);
-        opacity: 0;
         animation: dropper linear both;
         animation-timeline: view();
         animation-range: entry 10% entry 80%;
@@ -60,11 +63,9 @@
     @keyframes dropper {
         from { 
             transform: translateY(600px); 
-            opacity: 0; 
         }
         to { 
             transform: translateY(0); 
-            opacity: 1; 
         }
     }
 
@@ -123,6 +124,7 @@
     }
 
     .project-image, a {
+        display: block;
         width: 40vw;
         height: 40vw;
         object-fit: cover;

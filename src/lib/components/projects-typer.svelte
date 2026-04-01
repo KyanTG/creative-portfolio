@@ -12,7 +12,7 @@
 <style>
 
     .project-header {
-        padding-top: 11rem;
+        padding-top: 6rem;
     }
 
     .project-typer-h1 {

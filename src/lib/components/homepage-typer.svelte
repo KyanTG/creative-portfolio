@@ -18,7 +18,7 @@
 <style>
 
 .personal-header {
-    padding-top: 11rem;
+    padding-top: 6rem;
 }
 
 .home-typer-h1 {
