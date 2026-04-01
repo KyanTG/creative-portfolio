@@ -5,9 +5,9 @@
         "image": "/informaat.png",
         "description": "Informaat is een project waar de focus hoog ligt op het maken van een responsive website, daarbij vinden er veel veranderingen plaats in de layout op verschillende scherm groottes.",
         "website": "https://kyantg.github.io/the-startup-responsive-interactive-website/Informaat/informaat.html",
-        "phoneWebsite": "/informaat-phone.png",
-        "tabletWebsite": "/informaat-tablet.png",
-        "desktopWebsite": "/informaat-desktop.png"
+        "websitePhone": "/informaat-phone.png",
+        "websiteTablet": "/informaat-tablet.png",
+        "websiteDesktop": "/informaat-desktop.png"
     },
     {
         "slug": "mediahuis",
@@ -15,9 +15,9 @@
         "image": "/mediahuis.png",
         "description": "Mediahuis is een project waar de focus hoog ligt om ervoor te zorgen dat de gebruiker kan zien welke radiozender er momenteel afspeelt en wat later nog gaat afspelen, ook is het erg belangrijk dat de gebruiker hier zijn favoriete shows kan liken.",
         "website": "https://pleasurable-ui-1yqs.onrender.com/radio-veronica",
-        "phoneWebsite": "/mediahuis-phone.png",
-        "tabletWebsite": "/mediahuis-tablet.png",
-        "desktopWebsite": "/mediahuis-desktop.png"
+        "websitePhone": "/mediahuis-phone.png",
+        "websiteTablet": "/mediahuis-tablet.png",
+        "websiteDesktop": "/mediahuis-desktop.png"
     },
     {
         "slug": "embassy-of-the-free-mind",
@@ -25,9 +25,9 @@
         "image": "/embassy-of-the-free-mind.png",
         "description": "Embassy of the Free Mind is een project waar de focus hoog ligt op het behouden van een online boeken catalogus, hierbij is het cruciaal dat een gebruiker door het boek heen kan bladeren en deze kan lezen. Als extra functie is er een reactie formulier bij geplaatst om vragen of recensies achter te laten.",
         "website": "https://proof-of-concept-cu3y.onrender.com",
-        "phoneWebsite": "/embassy-of-the-free-mind-phone.png",
-        "tabletWebsite": "/embassy-of-the-free-mind-tablet.png",
-        "desktopWebsite": "/embassy-of-the-free-mind-desktop.png"
+        "websitePhone": "/embassy-of-the-free-mind-phone.png",
+        "websiteTablet": "/embassy-of-the-free-mind-tablet.png",
+        "websiteDesktop": "/embassy-of-the-free-mind-desktop.png"
     },
     {
         "slug": "oncollaboration",
@@ -35,8 +35,8 @@
         "image": "/oncollaboration.png",
         "description": "OnCollaboration is een project waar de focus hoog ligt op het informeren van radiologen in Indonesie, hierbij is het cruciaal dat er Webinars terug te zien zijn en dat hier reacties achtergelaten kunnen worden. Dit is een teamproject.",
         "website": "https://oncollaboration.dev.fdnd.nl/",
-        "phoneWebsite": "/oncollaboration-phone.png",
-        "tabletWebsite": "/oncollaboration-tablet.png",
-        "desktopWebsite": "/oncollabarion-desktop.png"
+        "websitePhone": "/oncollaboration-phone.png",
+        "websiteTablet": "/oncollaboration-tablet.png",
+        "websiteDesktop": "/oncollaboration-desktop.png"
     }
 ]

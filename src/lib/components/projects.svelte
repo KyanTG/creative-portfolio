@@ -7,8 +7,8 @@
         {#each projects as project}
             <div class="project-article">
                 <div class="animation-wrapper">
-                    <a href={`/projects/${project.slug}`}>
-                        <img class="project-image" src={project.image} alt={project.title} />
+                    <a href={project.website} target="_blank">
+                        <img class="project-image" src={project.websiteTablet} alt={project.title} />
                     </a>
                 </div>
                 <div class="content">
@@ -128,6 +128,7 @@
         width: 40vw;
         height: 40vw;
         object-fit: cover;
+        object-position: top;
         border-radius: 50%;
     }
 

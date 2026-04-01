@@ -7,20 +7,24 @@
 
 <main>
     {#if project}
-        <section class="project-container">
+        <article class="project-container">
             <h1>{project.title}</h1>
             <p class="description">{project.description}</p>
-            <img class="website-phone" src={project.phoneWebsite} alt={project.title}>
-            <img class="website-tablet" src={project.tabletWebsite} alt={project.title}>
-            <img class="website-desktop" src={project.desktopWebsite} alt={project.title}>
+
+            <section>
+                <img class="website-phone" src={project.websitePhone} alt={project.title}>
+                <img class="website-tablet" src={project.websiteTablet} alt={project.title}>
+                <img class="website-desktop" src={project.websiteDesktop} alt={project.title}>
+            </section>
+
             <a href={project.website} target="_blank" class="visit-link">Visit Live Project</a>
             <a href="/projects" class="back-link">Back to Projects</a>
-        </section>
+        </article>
     {:else}
-        <section>
+        <article>
             <h1>Project Not Found</h1>
             <a href="/projects">Back to Projects</a>
-        </section>
+        </article>
     {/if}
 </main>
 
@@ -33,7 +37,7 @@
         padding-top: 6rem;
     }
 
-    section {
+    article {
         display: flex;
         flex-direction: column;
     }
