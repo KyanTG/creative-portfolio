@@ -33,7 +33,7 @@
         text-transform: uppercase;
         color: var(--secondary-color);
 
-        @media ( min-width: 458px ) {
+        @media ( min-width: 400px ) {
             font-size: 9vw;
         }
     }
@@ -44,11 +44,11 @@
         font-weight: 700;
         color: var(--secondary-color);
 
-        @media ( min-width: 360px ) {
+        @media ( min-width: 400px ) {
             font-size: 1em;
         }
     
-        @media ( min-width: 458px ) {
+        @media ( min-width: 400px ) {
             font-size: 3.5vw;
         }
     }

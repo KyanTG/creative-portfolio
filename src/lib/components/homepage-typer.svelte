@@ -25,7 +25,7 @@
     width: 0;
     animation: typing-home-mobile 1s steps(15) forwards;
 
-    @media (min-width: 458px) {
+    @media (min-width: 400px) {
         animation: typing-home 1s steps(15) forwards;
     }
 }
@@ -35,7 +35,7 @@
     animation: typing-home-two-mobile 3s steps(37) forwards;
     animation-delay: 1s;
 
-    @media ( min-width: 458px ) {
+    @media ( min-width: 400px ) {
         animation: typing-home-two 3s steps(37) forwards;
         animation-delay: 1s;
     }
@@ -43,7 +43,7 @@
 
 @keyframes typing-home {
     from { width: 0; }
-    to { width: 87.5%; }
+    to { width: 89.5%; }
 }
 
 @keyframes typing-home-mobile {
