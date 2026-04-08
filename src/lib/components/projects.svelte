@@ -72,10 +72,6 @@
             outline: 0.9vw solid var(--secondary-color);
         }
 
-        @media ( min-width: 1024px ) {
-            border: 1.2vw solid var(--primary-color);
-            outline: 0.6vw solid var(--secondary-color);
-        }
     }
 
     .animation-wrapper > a {
@@ -139,6 +135,7 @@
         h3 {
             opacity: 0;
             transition-delay: 0.2s;
+            font-size: 1.5rem;
         }
 
         .project-article:hover .content h3 {
@@ -216,12 +213,15 @@
         @media ( min-width: 700px ) {
             width: 40vw;
             height: 40vw;
+            max-width: none;
+            max-height: none;
         }
 
         @media ( min-width: 1024px ) {
             width: 30vw;
             height: 30vw;
         }
+
     }
 
     @keyframes dropper {
