@@ -3,7 +3,12 @@
 
     function toggleMenu() {
         isOpen = !isOpen;
-        document.body.classList.toggle('menu-open'); 
+        document.body.classList.toggle('menu-open');
+    }
+
+    function closeMenu() {
+        isOpen = false;
+        document.body.classList.remove('menu-open');
     }
 </script>
 
@@ -17,9 +22,15 @@
 
     <nav class:nav-open={isOpen}>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li></li>
+            <li>
+                <a href="/" on:click={closeMenu}>Home</a>
+            </li>
+            <li>
+                <a href="/projects" on:click={closeMenu}>Projecten</a>
+            </li>
+            <li>
+                <a href="/contact" on:click={closeMenu}>Contact</a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -34,8 +45,7 @@
         top: 20px;
         border: none;
         border-radius: 50px;
-        transition: all 0.3s ease;
-        transition-delay: 0.3s;
+        transition: all 0.3s ease 0.3s;
     }
 
     header.menu-open {
@@ -66,9 +76,16 @@
     .menu span {
         display: block;
         background: var(--primary-color, #333);
-        height: 16px;
-        width: 16px;
+        height: 1rem;
+        width: 1rem;
         border-radius: 100%;
+    }
+
+    .menu-open span {
+        position: absolute;
+        width: 1.25rem;
+        height: 1.25rem;
+        inset: 26px 0px 0px 26px;
     }
 
     header nav {
@@ -86,10 +103,17 @@
         margin: 0;
         padding: 0;
         pointer-events: none; 
+        visibility: hidden;
+    }
+
+    .menu-open a {
+        font-size: 0.9rem;
+        letter-spacing: -4%;
     }
 
     nav.nav-open ul {
         pointer-events: auto;
+        visibility: visible;
     }
 
     header li {
@@ -155,8 +179,6 @@
     header nav.nav-open ul li {
         opacity: 1;
     }
-
-    /* When opened for the animation */
 
     header nav.nav-open ul li:nth-of-type(1) { 
         transform: translate(0, 0) scale(1);

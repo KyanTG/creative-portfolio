@@ -1,11 +1,11 @@
 <script>
-    import personal from '$lib/data/personal.json';
+    import personal from '$lib/data/personal-header.json';
     let h1Done = false;
     let h2Done = false;
 </script>
 
 
-<section class="personal">
+<section class="personal-header">
     <h1 class="home-typer-h1 h1-typer-style" class:done={h1Done} on:animationend={() => h1Done = true}>
         {personal.name}
     </h1>
@@ -17,31 +17,12 @@
 
 <style>
 
-.personal {
-    padding-top: 8rem;
-}
-
-.h1-typer-style {
-    color: var(--secondary-color);
-    overflow: hidden; 
-    white-space: nowrap; 
-    border-right: 2px solid var(--secondary-color); 
-}
-
-.h2-typer-style {
-    color: var(--secondary-color);
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid var(--secondary-color);
-    visibility: hidden;
-}
-
-.done {
-    border-right: none;
+.personal-header {
+    padding-top: 6rem;
 }
 
 .home-typer-h1 {
+    width: 0;
     animation: typing-home-mobile 1s steps(15) forwards;
 
     @media (min-width: 458px) {
@@ -50,6 +31,7 @@
 }
 
 .home-typer-h2 {
+    width: 0;
     animation: typing-home-two-mobile 3s steps(37) forwards;
     animation-delay: 1s;
 
