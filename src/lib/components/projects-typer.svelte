@@ -21,7 +21,7 @@
 
     @keyframes typing-project-mobile-h1 {
         from { width: 0; }
-        to { width: 53vw; }
+        to { width: 62%; }
     }
 
     @keyframes typing-project-mobile-h2 {
