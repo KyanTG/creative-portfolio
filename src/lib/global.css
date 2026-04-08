@@ -18,6 +18,13 @@
 
     --primary-font: "Poppins", "inter";
 
+    /* sizes */
+
+    --s-phone-screen: 400px;
+    --tablet-screen: 700px;
+    --desktop-screen: 1024px;
+    --xl-desktop-screen: 1440px;
+
 
     h1 {
         font-family: var(--primary-font);
