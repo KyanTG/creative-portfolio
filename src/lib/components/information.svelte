@@ -196,6 +196,8 @@
         animation: cornerShapes 5s infinite linear;
 
         @media (min-width: 700px) {
+            width: min(55vw, 70vh);
+            height: min(55vw, 70vh);
             border: 0.9vw solid var(--secondary-color);
         }
 
@@ -221,11 +223,16 @@
 
     .content-group {
         position: relative;
-        width: min(70vw, 70vh); 
+        width: min(70vw, 70vh);
         height: min(70vw, 70vh);
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media (min-width: 700px) {
+            width: min(55vw, 70vh);
+            height: min(55vw, 70vh);
+        }
 
         @media (min-width: 1024px) {
             width: min(40vw, 70vh);
