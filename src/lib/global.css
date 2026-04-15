@@ -30,7 +30,6 @@
         font-family: var(--primary-font);
         font-size: 9.5vw;
         font-weight: 800;
-        text-transform: uppercase;
         color: var(--secondary-color);
 
         @media ( min-width: 400px ) {
