@@ -69,6 +69,8 @@
     }
 
     img {
+        animation: stacker 0.3s ease-in;
+        animation-timeline: view();
         object-fit: contain;
         width: auto;
         height: clamp(150px, calc(150px + (100vw - 320px) / 3), 220px);
@@ -81,4 +83,14 @@
     /* make stacking cards animation for mobile */
 
     /* make animation for the projects on tablet and desktop, also design that */
+
+    @keyframes stacker {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
 </style>
