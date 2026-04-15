@@ -7,7 +7,7 @@
         {#each projects as project}
             <div class="project-article">
                 <div class="animation-wrapper">
-                    <a href={project.website} target="_blank">
+                    <a href="/projects/{project.slug}">
                         <img class="project-image" src={project.websiteTablet} alt={project.title} />
                     </a>
                 </div>
