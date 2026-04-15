@@ -71,8 +71,7 @@
     img {
         object-fit: contain;
         width: auto;
-        height: clamp(160px, calc(160px + (100vw - 320px) * 0.5), 220px);
-
+        height: clamp(150px, calc(150px + (100vw - 320px) / 3), 220px);
     }
 
     p {
