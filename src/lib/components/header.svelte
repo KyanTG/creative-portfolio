@@ -35,17 +35,33 @@
     </nav>
 </header>
 
+
 <style>
+
+
     header {
         position: fixed;
         height: 4.5rem;
         width: 4.5rem;
         z-index: 10; 
-        right: 20px;
-        top: 20px;
+        right: 2rem;
+        top: 2rem;
         border: none;
         border-radius: 50px;
         transition: all 0.3s ease 0.3s;
+        padding-right: 2rem;
+
+        @media ( min-width: 700px ) {
+            right: 3rem;
+            top: 3rem;
+            padding-right: 3rem;
+        }
+
+        @media ( min-width: 1024px ) {
+            right: 4rem;
+            top: 4rem;
+            padding-right: 4rem;
+        }
     }
 
     header.menu-open {
@@ -123,6 +139,8 @@
         width: 4.5rem;
         border-radius: 50%;
         transition: all 0.3s ease-out;
+        z-index: 5;
+        opacity: 0;
     }
 
     header a {
@@ -139,45 +157,48 @@
     header nav ul li:nth-of-type(1) {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
-        transform: translate(5rem, 0) scale(0);
-    }
-
-    header nav ul li:nth-of-type(2) {
-        grid-column: 1 / 2;
-        grid-row: 2 / 3;
-        transform: translate(5rem, -5rem) scale(0);
-    }
-
-    header nav ul li:nth-of-type(3) {
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
-        transform: translate(0, -2rem) scale(0);
-    }
-
-    header nav ul li {
-        opacity: 0;
-    }
-
-    header nav ul li:nth-of-type(1) {
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
         transform: translate(5rem, 0) scale(0.5);
+
+        @media ( min-width: 700px ) {
+            transform: translate(6rem, 0) scale(0.5);
+        }
+
+        @media ( min-width: 1024px ) {
+            transform: translate(7rem, 0) scale(0.5);
+        }
     }
 
     header nav ul li:nth-of-type(2) {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
         transform: translate(5rem, -5rem) scale(0.5);
+
+        @media ( min-width: 700px ) {
+            transform: translate(6rem, -6rem) scale(0.5);
+        }
+
+        @media ( min-width: 1024px ) {
+            transform: translate(7rem, -7rem) scale(0.5);
+        }
     }
 
     header nav ul li:nth-of-type(3) {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
         transform: translate(0, -5rem) scale(0.5);
+
+        @media ( min-width: 700px ) {
+            transform: translate(0, -6rem) scale(0.5);
+        }
+
+        @media ( min-width: 1024px ) {
+            transform: translate(0, -7rem) scale(0.5);
+        }
     }
 
     header nav.nav-open ul li {
         opacity: 1;
+        z-index: 1;
     }
 
     header nav.nav-open ul li:nth-of-type(1) { 
