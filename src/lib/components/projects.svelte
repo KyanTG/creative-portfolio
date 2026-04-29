@@ -24,16 +24,6 @@
         --x: 0px;
         --y: 0px;
         scroll-behavior: smooth;
-        width: 100%;
-        padding-inline: 2rem;
-
-        @media ( min-width: 700px ) {
-            padding-inline: 3rem;
-        }
-
-        @media ( min-width: 1024px ) {
-            padding-inline: 4rem;
-        }
     }
 
     .project-articles {
@@ -62,7 +52,6 @@
         height: fit-content;
         cursor: pointer;
         view-timeline-name: --article;
-        view-timeline-axis: block;
     }
 
     .animation-wrapper {
@@ -72,15 +61,14 @@
         border-radius: 100%;
         border: 3vw solid var(--primary-color);
         outline: 1.5vw solid var(--secondary-color);
-        animation: dropper linear both;
+        animation: dropper linear both, dropper linear reverse forwards;
         animation-timeline: --article;
-        animation-range: entry 10% entry 80%;
+        animation-range: entry 10% entry 80%, exit 20% exit 90%;
 
         @media ( min-width: 700px ) {
             border: 1.8vw solid var(--primary-color);
             outline: 0.9vw solid var(--secondary-color);
         }
-
     }
 
     .animation-wrapper > a {
@@ -97,9 +85,9 @@
         opacity: 1;
         z-index: 10;
         padding: 0.5rem 0.5rem;
-        animation: dropper linear both;
+        animation: dropper linear both, dropper linear reverse forwards;
         animation-timeline: --article;
-        animation-range: entry 10% entry 80%;
+        animation-range: entry 10% entry 80%, exit 20% exit 90%;
 
         @media ( min-width: 700px ) {
             padding: 0.5rem 1rem;
@@ -235,15 +223,15 @@
 
     @keyframes dropper {
         0% {
-            transform: translateY(600px);
+            transform: scale(0);
         }
 
         80% {
-            transform: translateY(400);
+            transform: scale(0.5);
         }
 
         100% {
-            transform: translateY(0);
+            transform: scale(1);
         }
     }
 

@@ -16,7 +16,12 @@
     }
 
     .project-typer-h1 {
+        width: 0;
         animation: typing-project-mobile-h1 0.6s steps(9) forwards;
+
+        @media ( min-width: 400px ) {
+            animation: typing-project-h1 0.6s steps(9) forwards;
+        }
     }
 
     @keyframes typing-project-mobile-h1 {
@@ -24,9 +29,8 @@
         to { width: 62%; }
     }
 
-    @keyframes typing-project-mobile-h2 {
-        from { width: 0; visibility: visible; }
-        to { width: 100%; visibility: visible; }
+    @keyframes typing-project-h1 {
+        from { width: 0; }
+        to { width: 55%; }
     }
-
 </style>

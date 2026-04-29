@@ -29,19 +29,6 @@
 </main>
 
 <style>
-    main {
-        padding-inline: 2rem;
-        width: 100%;
-
-        @media ( min-width: 700px ) {
-            padding-inline: 3rem;
-        }
-
-        @media ( min-width: 1024px ) {
-            padding-inline: 4rem;
-        }
-    }
-
     .project-container {
         display: flex;
         flex-direction: column;
@@ -66,14 +53,18 @@
         flex-direction: column;
         padding-top: 8rem;
         width: 100%;
+        row-gap: 20rem;
+        padding-bottom: 20rem;
     }
 
     img {
-        animation: stacker 0.3s ease-in;
         animation-timeline: view();
         object-fit: contain;
+        position: sticky;
+        top: 60vh;
         width: auto;
-        height: clamp(150px, calc(150px + (100vw - 320px) / 3), 220px);
+        /* height: clamp(150px, calc(150px + (100vw - 320px) / 3), 220px); */
+        height: 50vw;
     }
 
     p {
@@ -84,13 +75,4 @@
 
     /* make animation for the projects on tablet and desktop, also design that */
 
-    @keyframes stacker {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    }
 </style>

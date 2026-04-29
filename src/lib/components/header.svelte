@@ -44,23 +44,23 @@
         height: 4.5rem;
         width: 4.5rem;
         z-index: 10; 
-        right: 2rem;
+        right: 1rem;
         top: 2rem;
         border: none;
-        border-radius: 50px;
+        overflow: hidden;
         transition: all 0.3s ease 0.3s;
-        padding-right: 2rem;
+        padding-right: 1rem;
 
         @media ( min-width: 700px ) {
-            right: 3rem;
+            right: 2rem;
             top: 3rem;
-            padding-right: 3rem;
+            padding-right: 2rem;
         }
 
         @media ( min-width: 1024px ) {
-            right: 4rem;
+            right: 3rem;
             top: 4rem;
-            padding-right: 4rem;
+            padding-right: 3rem;
         }
     }
 

@@ -11,20 +11,3 @@
 
     <Footer/>
 </main>
-
-<style>
-
-main {
-    padding-inline: 2rem;
-    width: 100%;
-
-    @media ( min-width: 700px ) {
-        padding-inline: 3rem;
-    }
-
-    @media ( min-width: 1024px ) {
-        padding-inline: 4rem;
-    }
-}
-
-</style>
