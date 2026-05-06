@@ -11,10 +11,22 @@
             <h1>{project.title}</h1>
             <p class="description">{project.description}</p>
 
-            <section class="project-images">
-                <img class="website-phone" src={project.websitePhone} alt={project.title}>
-                <img class="website-tablet" src={project.websiteTablet} alt={project.title}>
-                <img class="website-desktop" src={project.websiteDesktop} alt={project.title}>
+            <!-- Phone pictures whole website iphone 12pro -->
+
+            <section class="project-images-phone">
+                <img class="website-phone" src={project.websitePhoneOne} alt={project.title}>
+                <img class="website-phone" src={project.websitePhoneTwo} alt={project.title}>
+                <img class="website-phone" src={project.websitePhoneThree} alt={project.title}>
+                <img class="website-phone" src={project.websitePhoneFour} alt={project.title}>
+            </section>
+
+            <!-- Desktop pictures whole website macbook 14 inch -->
+
+            <section class="project-images-desktop">
+                <img class="website-desktop" src={project.websiteDesktopOne} alt={project.title}>
+                <img class="website-desktop" src={project.websiteDesktopTwo} alt={project.title}>
+                <img class="website-desktop" src={project.websiteDesktopThree} alt={project.title}>
+                <img class="website-desktop" src={project.websiteDesktopFour} alt={project.title}>
             </section>
 
             <a href={project.website} target="_blank" class="visit-link">Visit Live Project</a>
@@ -48,7 +60,7 @@
         max-width: 700px;
     }
 
-    .project-images {
+    .project-images-phone {
         display: flex;
         flex-direction: column;
         padding-top: 8rem;
@@ -57,13 +69,30 @@
         padding-bottom: 20rem;
     }
 
-    img {
+    .project-images-desktop {
+        display: flex;
+        flex-direction: column;
+        padding-top: 8rem;
+        width: 100%;
+        row-gap: 20rem;
+        padding-bottom: 20rem;
+    }
+
+    .website-phone {
         animation-timeline: view();
         object-fit: contain;
         position: sticky;
         top: 60vh;
         width: auto;
-        /* height: clamp(150px, calc(150px + (100vw - 320px) / 3), 220px); */
+        height: 50vw;
+    }
+
+    .website-desktop {
+        animation-timeline: view();
+        object-fit: contain;
+        position: sticky;
+        top: 60vh;
+        width: auto;
         height: 50vw;
     }
 
