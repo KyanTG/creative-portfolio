@@ -8,7 +8,7 @@
             <div class="project-article">
                 <div class="animation-wrapper">
                     <a href="/projects/{project.slug}">
-                        <img class="project-image" src={project.websiteTablet} alt={project.title} />
+                        <img class="project-image" src={project.showcaseImage} alt={project.title} />
                     </a>
                 </div>
                 <div class="content">

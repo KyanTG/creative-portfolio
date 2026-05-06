@@ -14,19 +14,19 @@
             <!-- Phone pictures whole website iphone 12pro -->
 
             <section class="project-images-phone">
-                <img class="website-phone" src={project.websitePhoneOne} alt={project.title}>
-                <img class="website-phone" src={project.websitePhoneTwo} alt={project.title}>
-                <img class="website-phone" src={project.websitePhoneThree} alt={project.title}>
-                <img class="website-phone" src={project.websitePhoneFour} alt={project.title}>
+                <img class="styling-showcase website-phone" src={project.websitePhoneOne} alt={project.title}>
+                <img class="styling-showcase website-phone" src={project.websitePhoneTwo} alt={project.title}>
+                <img class="styling-showcase website-phone" src={project.websitePhoneThree} alt={project.title}>
+                <img class="styling-showcase website-phone" src={project.websitePhoneFour} alt={project.title}>
             </section>
 
             <!-- Desktop pictures whole website macbook 14 inch -->
 
             <section class="project-images-desktop">
-                <img class="website-desktop" src={project.websiteDesktopOne} alt={project.title}>
-                <img class="website-desktop" src={project.websiteDesktopTwo} alt={project.title}>
-                <img class="website-desktop" src={project.websiteDesktopThree} alt={project.title}>
-                <img class="website-desktop" src={project.websiteDesktopFour} alt={project.title}>
+                <img class="styling-showcase website-desktop" src={project.websiteDesktopOne} alt={project.title}>
+                <img class="styling-showcase website-desktop" src={project.websiteDesktopTwo} alt={project.title}>
+                <img class="styling-showcase website-desktop" src={project.websiteDesktopThree} alt={project.title}>
+                <img class="styling-showcase website-desktop" src={project.websiteDesktopFour} alt={project.title}>
             </section>
 
             <a href={project.website} target="_blank" class="visit-link">Visit Live Project</a>
@@ -63,6 +63,7 @@
     .project-images-phone {
         display: flex;
         flex-direction: column;
+        align-items: center;
         padding-top: 8rem;
         width: 100%;
         row-gap: 20rem;
@@ -79,21 +80,25 @@
     }
 
     .website-phone {
-        animation-timeline: view();
         object-fit: contain;
-        position: sticky;
-        top: 60vh;
-        width: auto;
+        width: fit-content;
         height: 50vw;
+        z-index: 0;
+        position: sticky;
+        top: 15vh;
+        margin-left: calc(sibling-index() * 100px);
     }
 
     .website-desktop {
-        animation-timeline: view();
         object-fit: contain;
-        position: sticky;
-        top: 60vh;
-        width: auto;
+        width: fit-content;
         height: 50vw;
+    }
+
+    .styling-showcase {
+        /* border-radius: 1.5rem;
+        box-shadow: 0 0 3rem var(--secondary-color); */
+        animation-timeline: view();
     }
 
     p {
