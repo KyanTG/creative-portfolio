@@ -13,11 +13,15 @@
 
             <!-- Phone pictures whole website iphone 12pro -->
 
-            <section class="project-images-phone">
-                <img class="styling-showcase website-phone" src={project.websitePhoneOne} alt={project.title}>
-                <img class="styling-showcase website-phone" src={project.websitePhoneTwo} alt={project.title}>
-                <img class="styling-showcase website-phone" src={project.websitePhoneThree} alt={project.title}>
-                <img class="styling-showcase website-phone" src={project.websitePhoneFour} alt={project.title}>
+            <section class="phone-ring-track" style="--count: 4;">
+                <div class="phone-ring-stage">
+                    <div class="phone-ring">
+                        <img class="phone-ring-item" style="--i: 0;" src={project.websitePhoneOne} alt={project.title}>
+                        <img class="phone-ring-item" style="--i: 1;" src={project.websitePhoneTwo} alt={project.title}>
+                        <img class="phone-ring-item" style="--i: 2;" src={project.websitePhoneThree} alt={project.title}>
+                        <img class="phone-ring-item" style="--i: 3;" src={project.websitePhoneFour} alt={project.title}>
+                    </div>
+                </div>
             </section>
 
             <!-- Desktop pictures whole website macbook 14 inch -->
@@ -60,16 +64,6 @@
         max-width: 700px;
     }
 
-    .project-images-phone {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 8rem;
-        width: 100%;
-        row-gap: 20rem;
-        padding-bottom: 20rem;
-    }
-
     .project-images-desktop {
         display: flex;
         flex-direction: column;
@@ -79,15 +73,59 @@
         padding-bottom: 20rem;
     }
 
-    .website-phone {
-        object-fit: contain;
-        width: fit-content;
-        height: 50vw;
-        z-index: 0;
-        position: sticky;
-        top: 15vh;
-        margin-left: calc(sibling-index() * 100px);
+    @supports (view-timeline: --phone-ring) {
+
+    .phone-ring-track {
+        position: relative;
+        height: 400vh;
+        margin-top: 10rem;
+        view-timeline-name: --phone-ring;
     }
+
+    .phone-ring-stage {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        perspective: 1400px;
+        overflow: hidden;
+    }
+
+    .phone-ring {
+        --radius: 150px;
+        position: relative;
+        width: 150px;
+        aspect-ratio: 9 / 19;
+        transform-style: preserve-3d;
+        animation: phone-ring-spin linear both;
+        animation-timeline: --phone-ring;
+        animation-range: entry 100% exit 100%;
+    }
+
+    @media (min-width: 768px) {
+        .phone-ring {
+            --radius: 360px;
+            width: 260px;
+        }
+    }
+
+    @keyframes phone-ring-spin {
+        from { transform: rotateY(0deg); }
+        to { transform: rotateY(-360deg); }
+    }
+
+    .phone-ring-item {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 20px;
+        backface-visibility: hidden;
+        transform: rotateY(calc(var(--i) * (360deg / var(--count)))) translateZ(var(--radius));
+    }
+}
 
     .website-desktop {
         object-fit: contain;
