@@ -2,13 +2,13 @@
     import scrollDown from "$lib/assets/scroll-down.svg";
 </script>
 
-<section class="scroll-down">
-    <a href="#">
-        <img id="small-scroll" src={scrollDown} alt="scroll down">
-        <img id="medium-scroll" src={scrollDown} alt="scroll down">
-        <img id="big-scroll" src={scrollDown} alt="scroll down">
-    </a>
-</section>  
+<section class="scroll-down" aria-hidden="true">
+    <div class="scroll-stack">
+        <img id="small-scroll" src={scrollDown} alt="">
+        <img id="medium-scroll" src={scrollDown} alt="">
+        <img id="big-scroll" src={scrollDown} alt="">
+    </div>
+</section>
 
 <style>
 
@@ -19,7 +19,7 @@
         margin-top: 10rem;
     }
 
-    a {
+    .scroll-stack {
         position: relative;
         display: flex;
         flex-direction: column;

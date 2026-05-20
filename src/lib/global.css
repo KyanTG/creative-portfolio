@@ -2,13 +2,6 @@
 
     /* colors  */
 
-    
-    /* --primary-color: #051C55; 
-    --secondary-color: #fa921c;
-    --white: #ffffff;
-    --black: #000000; */
-
-
     --primary-color: hsl(222.8, 88.9%, 17.6%);
     --secondary-color: hsl(31.9, 95.7%, 54.5%); 
     --white: hsl(0, 0%, 100%);
@@ -25,11 +18,15 @@
     --desktop-screen: 1024px;
     --xl-desktop-screen: 1440px;
 
+    /* shared by h1 padding-top and hamburger position */
+    --h1-top: 3rem;
+
 
     h1 {
         font-family: var(--primary-font);
         font-size: 9.5vw;
         font-weight: 800;
+        line-height: 1.1;
         color: var(--secondary-color);
 
         @media ( min-width: 400px ) {
@@ -62,6 +59,7 @@
     p {
         font-family: var(--primary-font);
         line-height: 1.4;
+        color: var(--secondary-color);
     }
 
     a {
@@ -89,10 +87,14 @@
 
 }
 
+@view-transition {
+    navigation: auto;
+}
+
 html {
     background-color: var(--primary-color);
     height: 100vh;
-    
+
     * {
         box-sizing: border-box;
         margin: 0;

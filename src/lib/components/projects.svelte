@@ -2,12 +2,12 @@
     import projects from '$lib/data/projects.json';
 </script>
 
-<main onmousemove={(e) => { e.currentTarget.style.setProperty('--x', `${e.clientX}px`); e.currentTarget.style.setProperty('--y', `${e.clientY}px`);}}>
+<div class="project-root" onmousemove={(e) => { e.currentTarget.style.setProperty('--x', `${e.clientX}px`); e.currentTarget.style.setProperty('--y', `${e.clientY}px`);}}>
     <section class="project-articles">
         {#each projects as project}
             <div class="project-article">
                 <div class="animation-wrapper">
-                    <a href="/projects/{project.slug}">
+                    <a href="/projects/{project.slug}" data-sveltekit-reload>
                         <img class="project-image" src={project.showcaseImage} alt={project.title} />
                     </a>
                 </div>
@@ -17,10 +17,10 @@
             </div>
         {/each}
     </section>
-</main>
+</div>
 
 <style>
-    main {
+    .project-root {
         --x: 0px;
         --y: 0px;
         scroll-behavior: smooth;

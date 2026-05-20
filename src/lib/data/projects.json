@@ -2,7 +2,6 @@
     {
         "slug": "informaat",
         "title": "Informaat",
-        "image": "/informaat.png",
         "showcaseImage": "/informaat.png",
         "description": "Informaat is een project waar de focus hoog ligt op het maken van een responsive website, daarbij vinden er veel veranderingen plaats in de layout op verschillende scherm groottes.",
         "website": "https://kyantg.github.io/the-startup-responsive-interactive-website/Informaat/informaat.html",
@@ -18,7 +17,6 @@
     {
         "slug": "mediahuis",
         "title": "Mediahuis",
-        "image": "/mediahuis.png",
         "showcaseImage": "/mediahuis.png",
         "description": "Mediahuis is een project waar de focus hoog ligt om ervoor te zorgen dat de gebruiker kan zien welke radiozender er momenteel afspeelt en wat later nog gaat afspelen, ook is het erg belangrijk dat de gebruiker hier zijn favoriete shows kan liken.",
         "website": "https://pleasurable-ui-1yqs.onrender.com/radio-veronica",
@@ -34,7 +32,6 @@
     {
         "slug": "embassy-of-the-free-mind",
         "title": "Embassy of the Free Mind",
-        "image": "/embassy-of-the-free-mind.png",
         "showcaseImage": "/embassy-of-the-free-mind.png",
         "description": "Embassy of the Free Mind is een project waar de focus hoog ligt op het behouden van een online boeken catalogus, hierbij is het cruciaal dat een gebruiker door het boek heen kan bladeren en deze kan lezen. Als extra functie is er een reactie formulier bij geplaatst om vragen of recensies achter te laten.",
         "website": "https://proof-of-concept-cu3y.onrender.com",
@@ -50,7 +47,6 @@
     {
         "slug": "oncollaboration",
         "title": "OnCollaboration",
-        "image": "/oncollaboration.png",
         "showcaseImage": "/oncollaboration.png",
         "description": "OnCollaboration is een project waar de focus hoog ligt op het informeren van radiologen in Indonesie, hierbij is het cruciaal dat er Webinars terug te zien zijn en dat hier reacties achtergelaten kunnen worden. Dit is een teamproject.",
         "website": "https://oncollaboration.dev.fdnd.nl/",

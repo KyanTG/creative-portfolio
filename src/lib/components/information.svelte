@@ -10,70 +10,74 @@
     onMount(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        let ctx = gsap.context(() => {
-            const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
-            
-            // Mobile-first: default is double space, desktop is single
-            let xPercentMultiplier = -200; // Default for mobile
-            if (window.matchMedia("(min-width: 1024px)").matches) {
-                xPercentMultiplier = -100; // Desktop
+        const mm = gsap.matchMedia();
+
+        mm.add(
+            {
+                isDesktop: "(min-width: 1024px)",
+                isMobile: "(max-width: 1023px)"
+            },
+            (context) => {
+                const { isDesktop } = context.conditions;
+                const xPercentMultiplier = isDesktop ? -100 : -200;
+
+                const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
+
+                const scroller = gsap.to(articles, {
+                    xPercent: xPercentMultiplier * (articles.length - 1),
+                    ease: "none",
+                });
+
+                const mainScroll = ScrollTrigger.create({
+                    trigger: triggerWrap,
+                    start: "top top",
+                    end: () => "+=" + scrollContainer.scrollWidth,
+                    pin: true,
+                    animation: scroller,
+                    scrub: 1,
+                    invalidateOnRefresh: true
+                });
+
+                articles.forEach((article, i) => {
+                    const yDirection = (i % 2 !== 0) ? 200 : -200;
+                    const target = article.querySelector(".anim-target");
+                    gsap.from(target, {
+                        y: yDirection,
+                        opacity: 0,
+                        duration: 1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: article,
+                            containerAnimation: scroller,
+                            start: "left center",
+                            end: "center center",
+                            scrub: true,
+                        }
+                    });
+                });
+
+                const onFocusIn = (e) => {
+                    const wrapper = e.target.closest('.article-wrapper');
+                    if (!wrapper) return;
+
+                    const index = articles.indexOf(wrapper);
+                    if (index === -1) return;
+
+                    const progress = index / (articles.length - 1);
+                    const scrollTarget = mainScroll.start + (mainScroll.end - mainScroll.start) * progress;
+
+                    mainScroll.scroll(scrollTarget);
+                };
+
+                scrollContainer.addEventListener('focusin', onFocusIn);
+
+                return () => {
+                    scrollContainer.removeEventListener('focusin', onFocusIn);
+                };
             }
+        );
 
-            const scroller = gsap.to(articles, {
-                xPercent: xPercentMultiplier * (articles.length - 1), 
-                ease: "none",
-            });
-
-            const mainScroll = ScrollTrigger.create({
-                trigger: triggerWrap,
-                start: "top top",
-                end: () => "+=" + scrollContainer.scrollWidth,
-                pin: true,
-                animation: scroller,
-                scrub: 1,
-                invalidateOnRefresh: true
-            });
-
-            articles.forEach((article, i) => {                
-                const yDirection = (i % 2 !== 0) ? 200 : -200;
-                const target = article.querySelector(".anim-target");
-                gsap.from(target, {
-                    y: yDirection,
-                    opacity: 0,
-                    duration: 1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: article,
-                        containerAnimation: scroller, 
-                        start: "left center",
-                        end: "center center",
-                        scrub: true,
-                    }
-                });
-            });
-
-            scrollContainer.addEventListener('focusin', (e) => {
-                const wrapper = e.target.closest('.article-wrapper');
-                if (!wrapper) return;
-
-                const index = articles.indexOf(wrapper);
-                if (index === -1) return;
-
-                if (scrollContainer.scrollLeft !== 0) scrollContainer.scrollLeft = 0;
-                if (triggerWrap.scrollLeft !== 0) triggerWrap.scrollLeft = 0;
-
-                const progress = index / (articles.length - 1);
-                const scrollTarget = mainScroll.start + (mainScroll.end - mainScroll.start) * progress;
-
-                window.scrollTo({
-                    top: scrollTarget,
-                    behavior: 'auto' 
-                });
-            });
-
-        }, scrollContainer);
-        
-        return () => ctx.revert(); 
+        return () => mm.revert();
     });
 </script>
 
@@ -105,7 +109,7 @@
                         <p class="article-tekst">{@html info.text}</p>
                     {/if}
                     {#if info.link}
-                        <a id="article-portfolio-link" href={info.link}>Bekijk mijn projecten</a>
+                        <a id="article-portfolio-link" href={info.link} data-sveltekit-reload>Bekijk mijn projecten</a>
                     {/if}
                 </article>
             </div>
@@ -170,7 +174,6 @@
     }
 
     p {
-        color: var(--secondary-color);
         font-size: clamp(0.9rem, 0.7rem + 1vw, 1.1rem);
         max-width: 85%;
         text-align: center;

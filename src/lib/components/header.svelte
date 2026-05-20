@@ -1,5 +1,5 @@
 <script>
-    let isOpen = false;
+    let isOpen = $state(false);
 
     function toggleMenu() {
         isOpen = !isOpen;
@@ -13,7 +13,7 @@
 </script>
 
 <header class:menu-open={isOpen}>
-    <button class="menu" on:click={toggleMenu} tabindex="0" aria-label="Menu"> 
+    <button class="menu" onclick={toggleMenu} tabindex="0" aria-label="Menu">
         <span></span>
         <span></span>
         <span></span>
@@ -23,13 +23,13 @@
     <nav class:nav-open={isOpen}>
         <ul>
             <li>
-                <a href="/" on:click={closeMenu}>Home</a>
+                <a href="/" onclick={closeMenu} data-sveltekit-reload>Home</a>
             </li>
             <li>
-                <a href="/projects" on:click={closeMenu}>Projecten</a>
+                <a href="/projects" onclick={closeMenu} data-sveltekit-reload>Projecten</a>
             </li>
             <li>
-                <a href="/contact" on:click={closeMenu}>Contact</a>
+                <a href="/contact" onclick={closeMenu} data-sveltekit-reload>Contact</a>
             </li>
         </ul>
     </nav>
@@ -43,9 +43,9 @@
         position: fixed;
         height: 4.5rem;
         width: 4.5rem;
-        z-index: 10; 
+        z-index: 10;
         right: 1rem;
-        top: 2rem;
+        top: calc(var(--h1-top) + 4.95vw - 2.25rem);
         border: none;
         overflow: hidden;
         transition: all 0.3s ease 0.3s;
@@ -53,13 +53,11 @@
 
         @media ( min-width: 700px ) {
             right: 2rem;
-            top: 3rem;
             padding-right: 2rem;
         }
 
         @media ( min-width: 1024px ) {
             right: 3rem;
-            top: 4rem;
             padding-right: 3rem;
         }
     }
@@ -124,7 +122,7 @@
 
     .menu-open a {
         font-size: 0.9rem;
-        letter-spacing: -4%;
+        letter-spacing: -0.04em;
     }
 
     nav.nav-open ul {

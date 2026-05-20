@@ -4,9 +4,7 @@
 	let { children } = $props();
 </script>
 
-<main>
-	<Header />
-</main>
+<Header />
 
 {@render children()}
 
@@ -22,5 +20,9 @@
 		@media ( min-width: 1024px ) {
 			padding-inline: 3rem;
 		}
+	}
+
+	:global(h1) {
+		padding-top: var(--h1-top);
 	}
 </style>

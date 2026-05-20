@@ -11,7 +11,3 @@
 
     <Projects />
 </main>
-
-<style>
-
-</style>
