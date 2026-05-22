@@ -1,3 +1,14 @@
+html {
+    background-color: var(--primary-color);
+    height: 100vh;
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+}
+
 :root {
 
     /* colors  */
@@ -84,21 +95,40 @@
     .done {
         border-right: none !important;
     }
-
 }
 
 @view-transition {
     navigation: auto;
 }
 
-html {
-    background-color: var(--primary-color);
-    height: 100vh;
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+::view-transition-old(root) {
+    animation: viewtransition-old 0.1s ease
 }
+
+::view-transition-new(root) {
+    animation: viewtransition-new 0.1s ease
+}
+
+@keyframes viewtransition-old {
+    
+    0% {
+        scale: 1
+    }
+
+    100% {
+        scale: 1.2;
+    }
+}
+
+@keyframes viewtransition-new {
+    
+    0% {
+        scale: 1.2
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
 
