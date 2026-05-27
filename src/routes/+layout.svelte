@@ -6,10 +6,6 @@
 
 <Header />
 
-<div class="overlay-website">
-
-</div>
-
 {@render children()}
 
 <style>
@@ -29,13 +25,4 @@
 	:global(h1) {
 		padding-top: var(--h1-top);
 	}
-
-	.overlay-website {
-		height: 100vh;
-		width: 100vw;
-		background: red;
-		position: sticky;
-		top: 0;
-	}
-	
 </style>

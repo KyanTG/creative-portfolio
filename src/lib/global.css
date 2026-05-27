@@ -97,38 +97,46 @@ html {
     }
 }
 
-@view-transition {
-    navigation: auto;
-}
-
-::view-transition-old(root) {
-    animation: viewtransition-old 0.1s ease
-}
-
-::view-transition-new(root) {
-    animation: viewtransition-new 0.1s ease
-}
-
-@keyframes viewtransition-old {
-    
-    0% {
-        scale: 1
+    @view-transition {
+        navigation: auto;
     }
 
-    100% {
-        scale: 1.2;
-    }
-}
-
-@keyframes viewtransition-new {
-    
-    0% {
-        scale: 1.2
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none;
+      mix-blend-mode: normal;
     }
 
-    100% {
-        scale: 1;
+    ::view-transition-group(root) {
+        background-color: orange;
+        animation: 1s cubic-bezier(0.4, 0, 0.2, 1) both circle-reveal;
     }
-}
 
+    ::view-transition-old(root) {
+        animation: 500ms ease out-fade forwards;    
+    }
+
+    ::view-transition-new(root) {
+        animation: 500ms ease 300ms both in-fade; 
+    }
+
+
+
+    @keyframes circle-reveal {
+      from {
+        clip-path: circle(0% at 90% 10%);
+      }
+      to {
+        clip-path: circle(150% at 90% 10%); 
+      }
+    }
+
+    @keyframes out-fade {
+        to { opacity: 0; }
+    }
+
+    @keyframes in-fade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
