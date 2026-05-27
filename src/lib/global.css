@@ -30,18 +30,30 @@ html {
     --xl-desktop-screen: 1440px;
 
     /* shared by h1 padding-top and hamburger position */
-    --h1-top: 3rem;
+    --h1-top: 6rem;
+    --hamburger-right: 1rem;
+    --hamburger-top: 0.5rem;
+
+    @media ( min-width: 700px ) {
+        --h1-top: 3rem;
+        --hamburger-right: 2rem;
+        --hamburger-top: calc(var(--h1-top) + 4.95vw - 2.25rem);
+    }
+
+    @media ( min-width: 1024px ) {
+        --hamburger-right: 3rem;
+    }
 
 
     h1 {
         font-family: var(--primary-font);
-        font-size: 9.5vw;
+        font-size: 8.5vw;
         font-weight: 800;
         line-height: 1.1;
         color: var(--secondary-color);
 
         @media ( min-width: 400px ) {
-            font-size: 9vw;
+            font-size: 8vw;
         }
     }
 
@@ -79,16 +91,17 @@ html {
 
     /* Global Typer Styles */
     .h1-typer-style {
-        overflow: hidden; 
-        white-space: nowrap; 
-        border-right: 2px solid var(--secondary-color); 
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid transparent;
+        padding-bottom: 0.15em;
     }
 
     .h2-typer-style {
         width: 0;
         overflow: hidden;
         white-space: nowrap;
-        border-right: 2px solid var(--secondary-color);
+        border-right: 2px solid transparent;
         visibility: hidden;
     }
 
@@ -101,42 +114,40 @@ html {
         navigation: auto;
     }
 
-    ::view-transition-old(root),
-    ::view-transition-new(root) {
+    ::view-transition-old(root) {
       animation: none;
       mix-blend-mode: normal;
+      visibility: hidden;
+    }
+
+    ::view-transition-new(root) {
+      mix-blend-mode: normal;
+      animation: 0.8s step-end both delay-show;
+    }
+
+    @keyframes delay-show {
+      from { visibility: hidden; }
+      to { visibility: visible; }
     }
 
     ::view-transition-group(root) {
         background-color: orange;
-        animation: 1s cubic-bezier(0.4, 0, 0.2, 1) both circle-reveal;
+        animation: 0.8s both circle-reveal;
     }
 
-    ::view-transition-old(root) {
-        animation: 500ms ease out-fade forwards;    
-    }
-
-    ::view-transition-new(root) {
-        animation: 500ms ease 300ms both in-fade; 
-    }
 
 
 
     @keyframes circle-reveal {
-      from {
-        clip-path: circle(0% at 90% 10%);
+      0% {
+        clip-path: circle(0% at calc(100% - var(--hamburger-right) - 2.25rem) calc(var(--hamburger-top) + 2.25rem));
       }
-      to {
-        clip-path: circle(150% at 90% 10%); 
+      50% {
+        clip-path: circle(150% at calc(100% - var(--hamburger-right) - 2.25rem) calc(var(--hamburger-top) + 2.25rem));
+      }
+      100% {
+        clip-path: circle(0% at calc(100% - var(--hamburger-right) - 2.25rem) calc(var(--hamburger-top) + 2.25rem));
       }
     }
 
-    @keyframes out-fade {
-        to { opacity: 0; }
-    }
-
-    @keyframes in-fade {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
 

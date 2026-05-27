@@ -196,7 +196,7 @@
         overflow: hidden;
         isolation: isolate;
         border: 1.5vw solid var(--secondary-color);
-        animation: cornerShapes 5s infinite linear;
+        border-radius: 50%;
 
         @media (min-width: 700px) {
             width: min(55vw, 70vh);
@@ -213,14 +213,13 @@
     .shape-mask .article-style {
         padding: 0;
     }
-    
+
     .content-stabilizer {
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        animation: counterRotate 5s infinite linear;
         background: var(--primary-color);
     }
 
@@ -250,18 +249,29 @@
         width: 100%;
         height: 100%;
         border: 1.5vw solid var(--secondary-color);
-        animation: cornerShapes 5s infinite linear;
+        border-radius: 50%;
 
         @media (min-width: 700px) {
             border: 0.9vw solid var(--secondary-color);
         }
-        pointer-events: none; 
+        pointer-events: none;
         z-index: 0;
     }
 
     .content-group .article-style {
         z-index: 1;
         position: relative;
+    }
+
+    @supports (corner-shape: squircle) {
+        .shape-mask,
+        .animated-shape {
+            animation: cornerShapes 5s infinite linear;
+        }
+
+        .content-stabilizer {
+            animation: counterRotate 5s infinite linear;
+        }
     }
 
     @keyframes cornerShapes {
@@ -271,7 +281,7 @@
       75% { border-radius: 100%; corner-shape: round; }
       100% { border-radius: 20em; corner-shape: squircle; rotate: 360deg; }
     }
-    
+
     @keyframes counterRotate {
       0% { rotate: 0deg; }
       100% { rotate: -360deg; }

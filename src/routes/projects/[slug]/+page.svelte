@@ -37,10 +37,12 @@
                 </section>
             {/if}
 
-            {#if project.website}
-                <a href={project.website} target="_blank" rel="noopener noreferrer" class="visit-link">Visit Live Project</a>
-            {/if}
-            <a href="/projects" class="back-link" data-sveltekit-reload>Back to Projects</a>
+            <section class="buttons">
+                {#if project.website}
+                    <a href={project.website} target="_blank" rel="noopener noreferrer" class="visit-link">Visit Live Project</a>
+                {/if}
+                <a href="/projects" class="back-link" data-sveltekit-reload>Back to Projects</a>
+            </section>
         </article>
     {:else}
         <article>
@@ -54,6 +56,7 @@
     .project-container {
         display: flex;
         flex-direction: column;
+        padding-bottom: 0;
     }
 
     h1 {
@@ -67,6 +70,84 @@
     .description {
         padding-top: 2rem;
         max-width: 700px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .visit-link {
+        padding: 1rem 2.5rem;
+        font-family: var(--primary-font);
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
+        border-radius: 50px;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 15px color-mix(in srgb, var(--secondary-color) 40%, transparent);
+    }
+
+    .visit-link:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px color-mix(in srgb, var(--secondary-color) 60%, transparent);
+    }
+
+    .back-link {
+        margin-top: 1.5rem;
+        font-family: var(--primary-font);
+        font-size: 0.9rem;
+        color: var(--secondary-color);
+        text-decoration: none;
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+    }
+
+    .back-link:hover {
+        opacity: 1;
+    }
+
+    .phone-ring-track,
+    .desktop-ring-track {
+        margin-top: 4rem;
+    }
+
+    .phone-ring,
+    .desktop-ring {
+        display: grid;
+        gap: 1.5rem;
+        padding-inline: 1rem;
+    }
+
+    .phone-ring {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 500px;
+        margin-inline: auto;
+    }
+
+    .desktop-ring {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        margin-inline: auto;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 900px;
+        }
+    }
+
+    .phone-ring-item,
+    .desktop-ring-item {
+        width: 100%;
+        border-radius: 20px;
+        border: 3px solid var(--primary-color);
+        outline: 3px solid var(--secondary-color);
+        object-fit: contain;
     }
 
     @supports (view-timeline: --phone-ring) {
@@ -101,8 +182,8 @@
         }
 
         .phone-ring {
-            --radius: 150px;
-            width: 150px;
+            --radius: 135px;
+            width: 130px;
             aspect-ratio: 9 / 19;
             animation-timeline: --phone-ring;
         }
@@ -116,8 +197,8 @@
 
         @media (min-width: 768px) {
             .phone-ring {
-                --radius: 360px;
-                width: 260px;
+                --radius: 280px;
+                width: 200px;
             }
 
             .desktop-ring {

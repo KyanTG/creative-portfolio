@@ -51,7 +51,6 @@
         width: fit-content;
         height: fit-content;
         cursor: pointer;
-        view-timeline-name: --article;
     }
 
     .animation-wrapper {
@@ -61,9 +60,6 @@
         border-radius: 100%;
         border: 3vw solid var(--primary-color);
         outline: 1.5vw solid var(--secondary-color);
-        animation: dropper linear both, dropper linear reverse forwards;
-        animation-timeline: --article;
-        animation-range: entry 10% entry 80%, exit 20% exit 90%;
 
         @media ( min-width: 700px ) {
             border: 1.8vw solid var(--primary-color);
@@ -85,9 +81,6 @@
         opacity: 1;
         z-index: 10;
         padding: 0.5rem 0.5rem;
-        animation: dropper linear both, dropper linear reverse forwards;
-        animation-timeline: --article;
-        animation-range: entry 10% entry 80%, exit 20% exit 90%;
 
         @media ( min-width: 700px ) {
             padding: 0.5rem 1rem;
@@ -219,6 +212,19 @@
             height: 30vw;
         }
 
+    }
+
+    @supports (animation-timeline: view()) {
+        .project-article {
+            view-timeline-name: --article;
+        }
+
+        .animation-wrapper,
+        .content {
+            animation: dropper linear both, dropper linear reverse forwards;
+            animation-timeline: --article;
+            animation-range: entry 10% entry 80%, exit 20% exit 90%;
+        }
     }
 
     @keyframes dropper {

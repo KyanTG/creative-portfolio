@@ -1,12 +1,15 @@
 <script>
 	import '$lib/global.css';
 	import Header from '$lib/components/header.svelte';
+	import Footer from '$lib/components/footer.svelte';
 	let { children } = $props();
 </script>
 
 <Header />
 
 {@render children()}
+
+<Footer />
 
 <style>
 	:global(main) {
@@ -23,6 +26,10 @@
 	}
 
 	:global(h1) {
-		padding-top: var(--h1-top);
+		margin-top: var(--h1-top);
+	}
+
+	:global(footer) {
+		padding-bottom: 1rem;
 	}
 </style>

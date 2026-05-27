@@ -44,22 +44,12 @@
         height: 4.5rem;
         width: 4.5rem;
         z-index: 10;
-        right: 1rem;
-        top: calc(var(--h1-top) + 4.95vw - 2.25rem);
+        right: var(--hamburger-right);
+        top: var(--hamburger-top);
         border: none;
         overflow: hidden;
         transition: all 0.3s ease 0.3s;
-        padding-right: 1rem;
-
-        @media ( min-width: 700px ) {
-            right: 2rem;
-            padding-right: 2rem;
-        }
-
-        @media ( min-width: 1024px ) {
-            right: 3rem;
-            padding-right: 3rem;
-        }
+        padding-right: var(--hamburger-right);
     }
 
     header.menu-open {
@@ -69,6 +59,7 @@
     }
 
     .menu {
+        appearance: none;
         display: flex;
         flex-wrap: wrap;
         align-content: center;
@@ -155,43 +146,19 @@
     header nav ul li:nth-of-type(1) {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
-        transform: translate(5rem, 0) scale(0.5);
-
-        @media ( min-width: 700px ) {
-            transform: translate(6rem, 0) scale(0.5);
-        }
-
-        @media ( min-width: 1024px ) {
-            transform: translate(7rem, 0) scale(0.5);
-        }
+        transform: translate(calc(4.5rem + var(--hamburger-right)), 0) scale(0.5);
     }
 
     header nav ul li:nth-of-type(2) {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
-        transform: translate(5rem, -5rem) scale(0.5);
-
-        @media ( min-width: 700px ) {
-            transform: translate(6rem, -6rem) scale(0.5);
-        }
-
-        @media ( min-width: 1024px ) {
-            transform: translate(7rem, -7rem) scale(0.5);
-        }
+        transform: translate(calc(4.5rem + var(--hamburger-right)), calc(-4.5rem - var(--hamburger-right))) scale(0.5);
     }
 
     header nav ul li:nth-of-type(3) {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
-        transform: translate(0, -5rem) scale(0.5);
-
-        @media ( min-width: 700px ) {
-            transform: translate(0, -6rem) scale(0.5);
-        }
-
-        @media ( min-width: 1024px ) {
-            transform: translate(0, -7rem) scale(0.5);
-        }
+        transform: translate(0, calc(-4.5rem - var(--hamburger-right))) scale(0.5);
     }
 
     header nav.nav-open ul li {
