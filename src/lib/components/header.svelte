@@ -1,5 +1,5 @@
 <script>
-    let isOpen = false;
+    let isOpen = $state(false);
 
     function toggleMenu() {
         isOpen = !isOpen;
@@ -13,7 +13,7 @@
 </script>
 
 <header class:menu-open={isOpen}>
-    <button class="menu" on:click={toggleMenu} tabindex="0" aria-label="Menu"> 
+    <button class="menu" onclick={toggleMenu} tabindex="0" aria-label="Menu">
         <span></span>
         <span></span>
         <span></span>
@@ -23,29 +23,33 @@
     <nav class:nav-open={isOpen}>
         <ul>
             <li>
-                <a href="/" on:click={closeMenu}>Home</a>
+                <a href="/" onclick={closeMenu} data-sveltekit-reload>Home</a>
             </li>
             <li>
-                <a href="/projects" on:click={closeMenu}>Projecten</a>
+                <a href="/projects" onclick={closeMenu} data-sveltekit-reload>Projecten</a>
             </li>
             <li>
-                <a href="/contact" on:click={closeMenu}>Contact</a>
+                <a href="/contact" onclick={closeMenu} data-sveltekit-reload>Contact</a>
             </li>
         </ul>
     </nav>
 </header>
 
+
 <style>
+
+
     header {
         position: fixed;
         height: 4.5rem;
         width: 4.5rem;
-        z-index: 10; 
-        right: 20px;
-        top: 20px;
+        z-index: 10;
+        right: var(--hamburger-right);
+        top: var(--hamburger-top);
         border: none;
-        border-radius: 50px;
+        overflow: hidden;
         transition: all 0.3s ease 0.3s;
+        padding-right: var(--hamburger-right);
     }
 
     header.menu-open {
@@ -55,6 +59,7 @@
     }
 
     .menu {
+        appearance: none;
         display: flex;
         flex-wrap: wrap;
         align-content: center;
@@ -108,7 +113,7 @@
 
     .menu-open a {
         font-size: 0.9rem;
-        letter-spacing: -4%;
+        letter-spacing: -0.04em;
     }
 
     nav.nav-open ul {
@@ -123,6 +128,8 @@
         width: 4.5rem;
         border-radius: 50%;
         transition: all 0.3s ease-out;
+        z-index: 5;
+        opacity: 0;
     }
 
     header a {
@@ -139,45 +146,24 @@
     header nav ul li:nth-of-type(1) {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
-        transform: translate(5rem, 0) scale(0);
+        transform: translate(calc(4.5rem + var(--hamburger-right)), 0) scale(0.5);
     }
 
     header nav ul li:nth-of-type(2) {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
-        transform: translate(5rem, -5rem) scale(0);
+        transform: translate(calc(4.5rem + var(--hamburger-right)), calc(-4.5rem - var(--hamburger-right))) scale(0.5);
     }
 
     header nav ul li:nth-of-type(3) {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
-        transform: translate(0, -2rem) scale(0);
-    }
-
-    header nav ul li {
-        opacity: 0;
-    }
-
-    header nav ul li:nth-of-type(1) {
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
-        transform: translate(5rem, 0) scale(0.5);
-    }
-
-    header nav ul li:nth-of-type(2) {
-        grid-column: 1 / 2;
-        grid-row: 2 / 3;
-        transform: translate(5rem, -5rem) scale(0.5);
-    }
-
-    header nav ul li:nth-of-type(3) {
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
-        transform: translate(0, -5rem) scale(0.5);
+        transform: translate(0, calc(-4.5rem - var(--hamburger-right))) scale(0.5);
     }
 
     header nav.nav-open ul li {
         opacity: 1;
+        z-index: 1;
     }
 
     header nav.nav-open ul li:nth-of-type(1) { 

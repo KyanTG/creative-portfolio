@@ -1,21 +1,21 @@
 <script>
     import Hometyper from '$lib/components/homepage-typer.svelte';
     import Information from '$lib/components/information.svelte';
-    import Footer from '$lib/components/footer.svelte';
 </script>
 
-<main>
+<main class="home">
     <Hometyper/>
 
     <Information/>
-
-    <Footer/>
 </main>
 
 <style>
+    .home {
+        animation: 0.8s step-end both delay-content;
+    }
 
-main {
-    padding-inline: 1rem;
-}
-
+    @keyframes delay-content {
+        from { visibility: hidden; }
+        to { visibility: visible; }
+    }
 </style>

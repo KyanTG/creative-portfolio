@@ -1,13 +1,17 @@
+html {
+    background-color: var(--primary-color);
+    height: 100vh;
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+}
+
 :root {
 
     /* colors  */
-
-    
-    /* --primary-color: #051C55; 
-    --secondary-color: #fa921c;
-    --white: #ffffff;
-    --black: #000000; */
-
 
     --primary-color: hsl(222.8, 88.9%, 17.6%);
     --secondary-color: hsl(31.9, 95.7%, 54.5%); 
@@ -20,21 +24,36 @@
 
     /* sizes */
 
-    --s-phone-screen: 400px;
+    --normal-phone-screen: 400px;
     --tablet-screen: 700px;
     --desktop-screen: 1024px;
     --xl-desktop-screen: 1440px;
 
+    /* shared by h1 padding-top and hamburger position */
+    --h1-top: 6rem;
+    --hamburger-right: 1rem;
+    --hamburger-top: 0.5rem;
+
+    @media ( min-width: 700px ) {
+        --h1-top: 3rem;
+        --hamburger-right: 2rem;
+        --hamburger-top: calc(var(--h1-top) + 4.95vw - 2.25rem);
+    }
+
+    @media ( min-width: 1024px ) {
+        --hamburger-right: 3rem;
+    }
+
 
     h1 {
         font-family: var(--primary-font);
-        font-size: 9.5vw;
+        font-size: 8.5vw;
         font-weight: 800;
-        text-transform: uppercase;
+        line-height: 1.1;
         color: var(--secondary-color);
 
-        @media ( min-width: 458px ) {
-            font-size: 9vw;
+        @media ( min-width: 400px ) {
+            font-size: 8vw;
         }
     }
 
@@ -44,11 +63,11 @@
         font-weight: 700;
         color: var(--secondary-color);
 
-        @media ( min-width: 360px ) {
+        @media ( min-width: 400px ) {
             font-size: 1em;
         }
     
-        @media ( min-width: 458px ) {
+        @media ( min-width: 400px ) {
             font-size: 3.5vw;
         }
     }
@@ -63,6 +82,7 @@
     p {
         font-family: var(--primary-font);
         line-height: 1.4;
+        color: var(--secondary-color);
     }
 
     a {
@@ -71,33 +91,63 @@
 
     /* Global Typer Styles */
     .h1-typer-style {
-        overflow: hidden; 
-        white-space: nowrap; 
-        border-right: 2px solid var(--secondary-color); 
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid transparent;
+        padding-bottom: 0.15em;
     }
 
     .h2-typer-style {
         width: 0;
         overflow: hidden;
         white-space: nowrap;
-        border-right: 2px solid var(--secondary-color);
+        border-right: 2px solid transparent;
         visibility: hidden;
     }
 
     .done {
         border-right: none !important;
     }
-
 }
 
-html {
-    background-color: var(--primary-color);
-    height: 100vh;
-    
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root) {
+      animation: none;
+      mix-blend-mode: normal;
+      visibility: hidden;
+    }
+
+    ::view-transition-new(root) {
+      mix-blend-mode: normal;
+      animation: 0.8s step-end both delay-show;
+    }
+
+    @keyframes delay-show {
+      from { visibility: hidden; }
+      to { visibility: visible; }
+    }
+
+    ::view-transition-group(root) {
+        background-color: orange;
+        animation: 0.8s both circle-reveal;
+    }
+
+
+
+
+    @keyframes circle-reveal {
+      0% {
+        clip-path: circle(0% at calc(100% - var(--hamburger-right) - 2.25rem) calc(var(--hamburger-top) + 2.25rem));
       }
-}
+      50% {
+        clip-path: circle(150% at calc(100% - var(--hamburger-right) - 2.25rem) calc(var(--hamburger-top) + 2.25rem));
+      }
+      100% {
+        clip-path: circle(0% at calc(100% - var(--hamburger-right) - 2.25rem) calc(var(--hamburger-top) + 2.25rem));
+      }
+    }
+
 

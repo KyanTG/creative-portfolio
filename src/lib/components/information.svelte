@@ -10,70 +10,74 @@
     onMount(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        let ctx = gsap.context(() => {
-            const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
-            
-            // Mobile-first: default is double space, desktop is single
-            let xPercentMultiplier = -200; // Default for mobile
-            if (window.matchMedia("(min-width: 1124px)").matches) {
-                xPercentMultiplier = -100; // Desktop
+        const mm = gsap.matchMedia();
+
+        mm.add(
+            {
+                isDesktop: "(min-width: 1024px)",
+                isMobile: "(max-width: 1023px)"
+            },
+            (context) => {
+                const { isDesktop } = context.conditions;
+                const xPercentMultiplier = isDesktop ? -100 : -200;
+
+                const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
+
+                const scroller = gsap.to(articles, {
+                    xPercent: xPercentMultiplier * (articles.length - 1),
+                    ease: "none",
+                });
+
+                const mainScroll = ScrollTrigger.create({
+                    trigger: triggerWrap,
+                    start: "top top",
+                    end: () => "+=" + scrollContainer.scrollWidth,
+                    pin: true,
+                    animation: scroller,
+                    scrub: 1,
+                    invalidateOnRefresh: true
+                });
+
+                articles.forEach((article, i) => {
+                    const yDirection = (i % 2 !== 0) ? 200 : -200;
+                    const target = article.querySelector(".anim-target");
+                    gsap.from(target, {
+                        y: yDirection,
+                        opacity: 0,
+                        duration: 1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: article,
+                            containerAnimation: scroller,
+                            start: "left center",
+                            end: "center center",
+                            scrub: true,
+                        }
+                    });
+                });
+
+                const onFocusIn = (e) => {
+                    const wrapper = e.target.closest('.article-wrapper');
+                    if (!wrapper) return;
+
+                    const index = articles.indexOf(wrapper);
+                    if (index === -1) return;
+
+                    const progress = index / (articles.length - 1);
+                    const scrollTarget = mainScroll.start + (mainScroll.end - mainScroll.start) * progress;
+
+                    mainScroll.scroll(scrollTarget);
+                };
+
+                scrollContainer.addEventListener('focusin', onFocusIn);
+
+                return () => {
+                    scrollContainer.removeEventListener('focusin', onFocusIn);
+                };
             }
+        );
 
-            const scroller = gsap.to(articles, {
-                xPercent: xPercentMultiplier * (articles.length - 1), 
-                ease: "none",
-            });
-
-            const mainScroll = ScrollTrigger.create({
-                trigger: triggerWrap,
-                start: "top top",
-                end: () => "+=" + scrollContainer.scrollWidth,
-                pin: true,
-                animation: scroller,
-                scrub: 1,
-                invalidateOnRefresh: true
-            });
-
-            articles.forEach((article, i) => {                
-                const yDirection = (i % 2 !== 0) ? 200 : -200;
-                const target = article.querySelector(".anim-target");
-                gsap.from(target, {
-                    y: yDirection,
-                    opacity: 0,
-                    duration: 1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: article,
-                        containerAnimation: scroller, 
-                        start: "left center",
-                        end: "center center",
-                        scrub: true,
-                    }
-                });
-            });
-
-            scrollContainer.addEventListener('focusin', (e) => {
-                const wrapper = e.target.closest('.article-wrapper');
-                if (!wrapper) return;
-
-                const index = articles.indexOf(wrapper);
-                if (index === -1) return;
-
-                if (scrollContainer.scrollLeft !== 0) scrollContainer.scrollLeft = 0;
-                if (triggerWrap.scrollLeft !== 0) triggerWrap.scrollLeft = 0;
-
-                const progress = index / (articles.length - 1);
-                const scrollTarget = mainScroll.start + (mainScroll.end - mainScroll.start) * progress;
-
-                window.scrollTo({
-                    top: scrollTarget,
-                    behavior: 'auto' 
-                });
-            });
-
-        }, scrollContainer);
-        
-        return () => ctx.revert(); 
+        return () => mm.revert();
     });
 </script>
 
@@ -105,7 +109,7 @@
                         <p class="article-tekst">{@html info.text}</p>
                     {/if}
                     {#if info.link}
-                        <a id="article-portfolio-link" href={info.link}>Bekijk mijn projecten</a>
+                        <a id="article-portfolio-link" href={info.link} data-sveltekit-reload>Bekijk mijn projecten</a>
                     {/if}
                 </article>
             </div>
@@ -138,7 +142,7 @@
         margin-right: 100vw; /* Mobile-first: double space by default */
     }
 
-    @media (min-width: 1124px) {
+    @media (min-width: 1024px) {
         .article-wrapper {
             margin-right: 0; /* No extra space on desktop */
         }
@@ -154,19 +158,30 @@
         padding: 2rem;
     }
 
-    img {   
-        width: min(70vw, 70vh); 
+    img {
+        width: min(70vw, 70vh);
         height: min(70vw, 70vh);
         object-fit: contain;
         margin-top: 2rem;
     }
 
+    #foto-kyan {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        margin-top: 3rem;
+    }
+
     p {
-        color: var(--secondary-color);
-        font-size: clamp(0.9rem, 0.7rem + 1vw, 1.1rem); 
+        font-size: clamp(0.9rem, 0.7rem + 1vw, 1.1rem);
         max-width: 85%;
         text-align: center;
         margin-top: 1rem;
+
+        @media ( min-width: 1440px ) {
+            font-size: 1.25rem;
+        }
     }
 
     #article-portfolio-link {
@@ -176,38 +191,52 @@
 
     .shape-mask {
         position: relative;
-        width: min(70vw, 70vh); 
+        width: min(70vw, 70vh);
         height: min(70vw, 70vh);
-        overflow: hidden; 
-        isolation: isolate; 
-        border: clamp(5px, 1vw, 15px) solid var(--secondary-color);
-        animation: cornerShapes 5s infinite linear;
+        overflow: hidden;
+        isolation: isolate;
+        border: 1.5vw solid var(--secondary-color);
+        border-radius: 50%;
 
-        @media (min-width: 1124px) {
+        @media (min-width: 700px) {
+            width: min(55vw, 70vh);
+            height: min(55vw, 70vh);
+            border: 0.9vw solid var(--secondary-color);
+        }
+
+        @media (min-width: 1024px) {
             width: min(40vw, 70vh);
             height: min(40vw, 70vh);
         }
     }
-    
+
+    .shape-mask .article-style {
+        padding: 0;
+    }
+
     .content-stabilizer {
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        animation: counterRotate 5s infinite linear;
-        background: var(--primary-color); 
+        background: var(--primary-color);
     }
 
     .content-group {
         position: relative;
-        width: min(70vw, 70vh); 
+        width: min(70vw, 70vh);
         height: min(70vw, 70vh);
         display: flex;
         align-items: center;
         justify-content: center;
 
-        @media (min-width: 1124px) {
+        @media (min-width: 700px) {
+            width: min(55vw, 70vh);
+            height: min(55vw, 70vh);
+        }
+
+        @media (min-width: 1024px) {
             width: min(40vw, 70vh);
             height: min(40vw, 70vh);
         }
@@ -219,15 +248,30 @@
         left: 0;
         width: 100%;
         height: 100%;
-        border: clamp(5px, 1vw, 15px) solid var(--secondary-color);
-        animation: cornerShapes 5s infinite linear;
-        pointer-events: none; 
+        border: 1.5vw solid var(--secondary-color);
+        border-radius: 50%;
+
+        @media (min-width: 700px) {
+            border: 0.9vw solid var(--secondary-color);
+        }
+        pointer-events: none;
         z-index: 0;
     }
 
     .content-group .article-style {
         z-index: 1;
         position: relative;
+    }
+
+    @supports (corner-shape: squircle) {
+        .shape-mask,
+        .animated-shape {
+            animation: cornerShapes 5s infinite linear;
+        }
+
+        .content-stabilizer {
+            animation: counterRotate 5s infinite linear;
+        }
     }
 
     @keyframes cornerShapes {
@@ -237,7 +281,7 @@
       75% { border-radius: 100%; corner-shape: round; }
       100% { border-radius: 20em; corner-shape: squircle; rotate: 360deg; }
     }
-    
+
     @keyframes counterRotate {
       0% { rotate: 0deg; }
       100% { rotate: -360deg; }

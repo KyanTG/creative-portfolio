@@ -2,41 +2,40 @@
     import projects from '$lib/data/projects.json';
 </script>
 
-<main onmousemove={(e) => { e.currentTarget.style.setProperty('--x', `${e.clientX}px`); e.currentTarget.style.setProperty('--y', `${e.clientY}px`);}}>
+<div class="project-root" onmousemove={(e) => { e.currentTarget.style.setProperty('--x', `${e.clientX}px`); e.currentTarget.style.setProperty('--y', `${e.clientY}px`);}}>
     <section class="project-articles">
         {#each projects as project}
             <div class="project-article">
                 <div class="animation-wrapper">
-                    <a href={project.website} target="_blank">
-                        <img class="project-image" src={project.websiteTablet} alt={project.title} />
+                    <a href="/projects/{project.slug}" data-sveltekit-reload>
+                        <img class="project-image" src={project.showcaseImage} alt={project.title} />
                     </a>
                 </div>
                 <div class="content">
                     <h3>{project.title}</h3>
-                </div>  
+                </div>
             </div>
         {/each}
     </section>
-</main>
+</div>
 
 <style>
-    main {
+    .project-root {
         --x: 0px;
         --y: 0px;
         scroll-behavior: smooth;
-        width: 100%;
     }
 
     .project-articles {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         row-gap: 20vw;
         place-items: center;
         padding-top: 20rem;
 
         @media ( min-width: 700px ) {
             grid-template-columns: repeat(6, 1fr);
-            grid-template-rows: repeat(4, auto);
+            grid-template-rows: repeat(4, 1fr);
             row-gap: 10vw;
         }
 
@@ -47,59 +46,59 @@
 
     .project-article {
         position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: grid;
+        place-items: center;
         width: fit-content;
         height: fit-content;
         cursor: pointer;
     }
 
     .animation-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        grid-area: 1 / 1;
+        display: grid;
+        place-items: center;
         border-radius: 100%;
-        border: 2vw solid var(--primary-color);
-        outline: 1vw solid var(--secondary-color);
-        animation: dropper linear both;
-        animation-timeline: view();
-        animation-range: entry 10% entry 80%;
+        border: 3vw solid var(--primary-color);
+        outline: 1.5vw solid var(--secondary-color);
+
+        @media ( min-width: 700px ) {
+            border: 1.8vw solid var(--primary-color);
+            outline: 0.9vw solid var(--secondary-color);
+        }
     }
 
-    @keyframes dropper {
-        0% { 
-            transform: translateY(600px); 
-        }
-
-        80% {
-            transform: translateY(400);
-        }
-
-        100% { 
-            transform: translateY(0); 
-        }
+    .animation-wrapper > a {
+        grid-area: 1 / 1;
     }
 
     /* Touch devices — name always visible, centered inside the circle */
     .content {
+        grid-area: 1 / 1;
         pointer-events: none;
         background: var(--primary-color);
         border-radius: 1rem;
         border: solid 0.25rem var(--secondary-color);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         opacity: 1;
         z-index: 10;
-        padding: 0.5rem 1rem;
-        width: auto;
+        padding: 0.5rem 0.5rem;
+
+        @media ( min-width: 700px ) {
+            padding: 0.5rem 1rem;
+        }
     }
 
     h3 {
         opacity: 1;
         white-space: nowrap;
+        font-size: 0.75rem;
+
+        @media ( min-width: 400px ) {
+            font-size: 1rem;
+        }
+
+        @media ( min-width: 700px ) {
+            font-size: 1rem;
+        }
     }
 
     /* Mouse devices — cursor-following hover behaviour */
@@ -114,6 +113,7 @@
             transition: width 1s ease-in-out;
             transition-delay: 0.02s;
             width: 0;
+            animation: none;
         }
 
         .project-article:hover .content {
@@ -125,6 +125,7 @@
         h3 {
             opacity: 0;
             transition-delay: 0.2s;
+            font-size: 1.5rem;
         }
 
         .project-article:hover .content h3 {
@@ -133,7 +134,7 @@
     }
 
     .project-article:nth-of-type(1) {
-        grid-column: 1 / -1;
+        grid-column: 1;
 
         @media ( min-width: 700px ) {
             grid-column: 1 / 4;
@@ -186,20 +187,57 @@
 
     .project-image, a {
         display: block;
-        width: 60vw;
-        height: 60vw;
+        width: 70vw;
+        height: 70vw;
+        max-width: 350px;
+        max-height: 350px;
         object-fit: cover;
         object-position: top;
         border-radius: 50%;
 
+        @media ( min-width: 400px ) {
+            width: 60vw;
+            height: 60vw;
+        }
+
         @media ( min-width: 700px ) {
             width: 40vw;
             height: 40vw;
+            max-width: none;
+            max-height: none;
         }
 
         @media ( min-width: 1024px ) {
             width: 30vw;
             height: 30vw;
+        }
+
+    }
+
+    @supports (animation-timeline: view()) {
+        .project-article {
+            view-timeline-name: --article;
+        }
+
+        .animation-wrapper,
+        .content {
+            animation: dropper linear both, dropper linear reverse forwards;
+            animation-timeline: --article;
+            animation-range: entry 10% entry 80%, exit 20% exit 90%;
+        }
+    }
+
+    @keyframes dropper {
+        0% {
+            transform: scale(0);
+        }
+
+        80% {
+            transform: scale(0.5);
+        }
+
+        100% {
+            transform: scale(1);
         }
     }
 

@@ -2,41 +2,66 @@
     {
         "slug": "informaat",
         "title": "Informaat",
-        "image": "/informaat.png",
+        "showcaseImage": "/informaat.png",
         "description": "Informaat is een project waar de focus hoog ligt op het maken van een responsive website, daarbij vinden er veel veranderingen plaats in de layout op verschillende scherm groottes.",
         "website": "https://kyantg.github.io/the-startup-responsive-interactive-website/Informaat/informaat.html",
-        "websitePhone": "/informaat-phone.png",
-        "websiteTablet": "/informaat-tablet.png",
-        "websiteDesktop": "/informaat-desktop.png"
+        "websitePhoneOne": "/informaat-mobile-one.png",
+        "websitePhoneTwo": "/informaat-mobile-two.png",
+        "websitePhoneThree": "/informaat-mobile-three.png",
+        "websitePhoneFour": "/informaat-mobile-four.png",
+        "websiteDesktopOne": "/informaat-desktop-one.png",
+        "websiteDesktopTwo": "/informaat-desktop-two.png",
+        "websiteDesktopThree": "/informaat-desktop-three.png",
+        "websiteDesktopFour": "/informaat-desktop-four.png"
     },
     {
         "slug": "mediahuis",
         "title": "Mediahuis",
-        "image": "/mediahuis.png",
+        "showcaseImage": "/mediahuis.png",
         "description": "Mediahuis is een project waar de focus hoog ligt om ervoor te zorgen dat de gebruiker kan zien welke radiozender er momenteel afspeelt en wat later nog gaat afspelen, ook is het erg belangrijk dat de gebruiker hier zijn favoriete shows kan liken.",
         "website": "https://pleasurable-ui-1yqs.onrender.com/radio-veronica",
-        "websitePhone": "/mediahuis-phone.png",
-        "websiteTablet": "/mediahuis-tablet.png",
-        "websiteDesktop": "/mediahuis-desktop.png"
+        "websitePhoneOne": "/mediahuis-mobile-one.png",
+        "websitePhoneTwo": "/mediahuis-mobile-two.png",
+        "websitePhoneThree": "/mediahuis-mobile-three.png",
+        "websitePhoneFour": "/mediahuis-mobile-four.png",
+        "websiteDesktopOne": "/mediahuis-desktop-one.png",
+        "websiteDesktopTwo": "/mediahuis-desktop-two.png",
+        "websiteDesktopThree": "/mediahuis-desktop-three.png",
+        "websiteDesktopFour": "/mediahuis-desktop-four.png"
     },
     {
         "slug": "embassy-of-the-free-mind",
         "title": "Embassy of the Free Mind",
-        "image": "/embassy-of-the-free-mind.png",
+        "showcaseImage": "/embassy-of-the-free-mind.png",
         "description": "Embassy of the Free Mind is een project waar de focus hoog ligt op het behouden van een online boeken catalogus, hierbij is het cruciaal dat een gebruiker door het boek heen kan bladeren en deze kan lezen. Als extra functie is er een reactie formulier bij geplaatst om vragen of recensies achter te laten.",
         "website": "https://proof-of-concept-cu3y.onrender.com",
-        "websitePhone": "/embassy-of-the-free-mind-phone.png",
-        "websiteTablet": "/embassy-of-the-free-mind-tablet.png",
-        "websiteDesktop": "/embassy-of-the-free-mind-desktop.png"
+        "websitePhoneOne": "/embassy-of-the-free-mind-mobile-one.png",
+        "websitePhoneTwo": "/embassy-of-the-free-mind-mobile-two.png",
+        "websitePhoneThree": "/embassy-of-the-free-mind-mobile-three.png",
+        "websitePhoneFour": "/embassy-of-the-free-mind-mobile-four.png",
+        "websiteDesktopOne": "/embassy-of-the-free-mind-desktop-one.png",
+        "websiteDesktopTwo": "/embassy-of-the-free-mind-desktop-two.png",
+        "websiteDesktopThree": "/embassy-of-the-free-mind-desktop-three.png",
+        "websiteDesktopFour": "/embassy-of-the-free-mind-desktop-four.png"
     },
     {
         "slug": "oncollaboration",
         "title": "OnCollaboration",
-        "image": "/oncollaboration.png",
+        "showcaseImage": "/oncollaboration.png",
         "description": "OnCollaboration is een project waar de focus hoog ligt op het informeren van radiologen in Indonesie, hierbij is het cruciaal dat er Webinars terug te zien zijn en dat hier reacties achtergelaten kunnen worden. Dit is een teamproject.",
         "website": "https://oncollaboration.dev.fdnd.nl/",
-        "websitePhone": "/oncollaboration-phone.png",
-        "websiteTablet": "/oncollaboration-tablet.png",
-        "websiteDesktop": "/oncollaboration-desktop.png"
+        "websitePhoneOne": "/oncollaboration-mobile-one.png",
+        "websitePhoneTwo": "/oncollaboration-mobile-two.png",
+        "websitePhoneThree": "/oncollaboration-mobile-three.png",
+        "websitePhoneFour": "/oncollaboration-mobile-four.png",
+        "websiteDesktopOne": "/oncollaboration-desktop-one.png",
+        "websiteDesktopTwo": "/oncollaboration-desktop-two.png",
+        "websiteDesktopThree": "/oncollaboration-desktop-three.png",
+        "websiteDesktopFour": "/oncollaboration-desktop-four.png"
+    },
+    {
+        "slug": "javascript-30-course",
+        "title": "javascript 30 course",
+        "description": "Currently working on the JavaScript 30 course, a 30-day challenge to improve JavaScript skills."
     }
 ]
