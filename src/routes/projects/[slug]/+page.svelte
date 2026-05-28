@@ -9,7 +9,16 @@
     {#if project}
         <article class="project-container">
             <h1>{project.title}</h1>
-            <p class="description">{project.description}</p>
+                <article class="description-card">
+                    <p class="description">{project.description}</p>
+                    {#if project.stack}
+                        <ul class="stack-list">
+                            {#each project.stack as tech}
+                                <li class="stack-item">{tech}</li>
+                            {/each}
+                        </ul>
+                    {/if}
+                </article>
 
             {#if project.websitePhoneOne}
                 <section class="phone-ring-track" style="--count: 4;">
@@ -67,9 +76,40 @@
         }
     }
 
-    .description {
-        padding-top: 2rem;
+    .description-card {
+        position: relative;
         max-width: 700px;
+        margin-top: 2rem;
+        padding: 1.5rem;
+        border: 2px solid var(--secondary-color);
+        border-radius: 12px;
+    }
+
+    .description {
+        margin: 0;
+    }
+
+    .stack-list {
+        position: absolute;
+        left: 1.5rem;
+        bottom: 0;
+        transform: translateY(50%);
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .stack-item {
+        padding: 0.25rem 0.7rem;
+        border-radius: 50px;
+        font-family: var(--primary-font);
+        background: var(--secondary-color);
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 0.7rem;
     }
 
     .buttons {

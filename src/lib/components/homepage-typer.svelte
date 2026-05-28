@@ -18,43 +18,26 @@
 <style>
 
 .home-typer-h1 {
+    interpolate-size: allow-keywords;
     width: 0;
-    animation: typing-home-h1-mobile 1s steps(15) 0.8s forwards;
-
-    @media (min-width: 400px) {
-        animation: typing-home-h1 1s steps(15) 0.8s forwards;
-    }
+    animation: typing-home-h1 1s steps(15) 0.8s forwards;
 }
 
 .home-typer-h2 {
+    interpolate-size: allow-keywords;
     width: 0;
-    animation: typing-home-h2-mobile 3s steps(37) forwards;
+    animation: typing-home-h2 3s steps(37) forwards;
     animation-delay: 1.8s;
-
-    @media ( min-width: 400px ) {
-        animation: typing-home-h2 3s steps(37) forwards;
-        animation-delay: 1.8s;
-    }
 }
 
 @keyframes typing-home-h1 {
     from { width: 0; border-right-color: var(--secondary-color); }
-    to { width: 89.5%; border-right-color: var(--secondary-color); }
-}
-
-@keyframes typing-home-h1-mobile {
-    from { width: 0; border-right-color: var(--secondary-color); }
-    to { width: 96%; border-right-color: var(--secondary-color); }
+    to { width: max-content; border-right-color: var(--secondary-color); }
 }
 
 @keyframes typing-home-h2 {
     from { width: 0; border-right-color: var(--secondary-color); }
-    to { width: 76%; border-right-color: var(--secondary-color); }
-}
-
-@keyframes typing-home-h2-mobile {
-    from { width: 0; border-right-color: var(--secondary-color); }
-    to { width: 100%; border-right-color: var(--secondary-color); }
+    to { width: max-content; border-right-color: var(--secondary-color); }
 }
 
 </style>

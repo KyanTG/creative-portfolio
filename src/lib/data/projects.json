@@ -34,6 +34,7 @@
         "title": "Embassy of the Free Mind",
         "showcaseImage": "/embassy-of-the-free-mind.png",
         "description": "Embassy of the Free Mind is een project waar de focus hoog ligt op het behouden van een online boeken catalogus, hierbij is het cruciaal dat een gebruiker door het boek heen kan bladeren en deze kan lezen. Als extra functie is er een reactie formulier bij geplaatst om vragen of recensies achter te laten.",
+        "stack": ["HTML", "CSS", "Javascript"],
         "website": "https://proof-of-concept-cu3y.onrender.com",
         "websitePhoneOne": "/embassy-of-the-free-mind-mobile-one.png",
         "websitePhoneTwo": "/embassy-of-the-free-mind-mobile-two.png",
