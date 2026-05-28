@@ -91,25 +91,44 @@
 
     .stack-list {
         position: absolute;
-        left: 1.5rem;
+        left: 0.75rem;
         bottom: 0;
         transform: translateY(50%);
         display: flex;
         justify-content: flex-start;
-        gap: 0.75rem;
+        gap: 0.35rem;
         list-style: none;
         padding: 0;
         margin: 0;
+
+        @media ( min-width: 400px ) {
+            left: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        @media ( min-width: 700px ) {
+            gap: 0.75rem;
+        }
     }
 
     .stack-item {
-        padding: 0.25rem 0.7rem;
+        padding: 0.15rem 0.5rem;
         border-radius: 50px;
         font-family: var(--primary-font);
         background: var(--secondary-color);
         color: var(--primary-color);
         font-weight: bold;
-        font-size: 0.7rem;
+        font-size: 0.6rem;
+
+        @media ( min-width: 400px ) {
+            padding: 0.2rem 0.6rem;
+            font-size: 0.65rem;
+        }
+
+        @media ( min-width: 700px ) {
+            padding: 0.25rem 0.7rem;
+            font-size: 0.7rem;
+        }
     }
 
     .buttons {

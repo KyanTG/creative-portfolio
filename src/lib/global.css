@@ -55,6 +55,10 @@ html {
         @media ( min-width: 400px ) {
             font-size: 8vw;
         }
+
+        @media ( min-width: 700px ) {
+            max-width: calc(100vw - 9.5rem - var(--hamburger-right) - 2rem);
+        }
     }
 
     h2 {
