@@ -185,8 +185,22 @@
     }
 
     #article-portfolio-link {
-        margin-top: 0.5rem;
-        color: var(--secondary-color);
+        margin-top: 1rem;
+        padding: 0.5rem 1.25rem;
+        font-family: var(--primary-font);
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
+        border-radius: 50px;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 15px color-mix(in srgb, var(--secondary-color) 40%, transparent);
+    }
+
+    #article-portfolio-link:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px color-mix(in srgb, var(--secondary-color) 60%, transparent);
     }
 
     .shape-mask {
