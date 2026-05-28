@@ -58,10 +58,5 @@
         "websiteDesktopTwo": "/oncollaboration-desktop-two.png",
         "websiteDesktopThree": "/oncollaboration-desktop-three.png",
         "websiteDesktopFour": "/oncollaboration-desktop-four.png"
-    },
-    {
-        "slug": "javascript-30-course",
-        "title": "javascript 30 course",
-        "description": "Currently working on the JavaScript 30 course, a 30-day challenge to improve JavaScript skills."
     }
 ]
