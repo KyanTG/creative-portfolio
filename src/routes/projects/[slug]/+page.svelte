@@ -9,7 +9,16 @@
     {#if project}
         <article class="project-container">
             <h1>{project.title}</h1>
-            <p class="description">{project.description}</p>
+                <article class="description-card">
+                    <p class="description">{project.description}</p>
+                    {#if project.stack}
+                        <ul class="stack-list">
+                            {#each project.stack as tech}
+                                <li class="stack-item">{tech}</li>
+                            {/each}
+                        </ul>
+                    {/if}
+                </article>
 
             {#if project.websitePhoneOne}
                 <section class="phone-ring-track" style="--count: 4;">
@@ -67,9 +76,59 @@
         }
     }
 
-    .description {
-        padding-top: 2rem;
+    .description-card {
+        position: relative;
         max-width: 700px;
+        margin-top: 2rem;
+        padding: 1.5rem;
+        border: 2px solid var(--secondary-color);
+        border-radius: 12px;
+    }
+
+    .description {
+        margin: 0;
+    }
+
+    .stack-list {
+        position: absolute;
+        left: 0.75rem;
+        bottom: 0;
+        transform: translateY(50%);
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.35rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        @media ( min-width: 400px ) {
+            left: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        @media ( min-width: 700px ) {
+            gap: 0.75rem;
+        }
+    }
+
+    .stack-item {
+        padding: 0.15rem 0.5rem;
+        border-radius: 50px;
+        font-family: var(--primary-font);
+        background: var(--secondary-color);
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 0.6rem;
+
+        @media ( min-width: 400px ) {
+            padding: 0.2rem 0.6rem;
+            font-size: 0.65rem;
+        }
+
+        @media ( min-width: 700px ) {
+            padding: 0.25rem 0.7rem;
+            font-size: 0.7rem;
+        }
     }
 
     .buttons {

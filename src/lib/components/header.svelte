@@ -56,6 +56,8 @@
         width: 9.5rem;
         height: 9.5rem;
         transition-delay: 0s; 
+        background: var(--primary-color);
+        border-radius: 36px;
     }
 
     .menu {

@@ -4,6 +4,7 @@
         "title": "Informaat",
         "showcaseImage": "/informaat.png",
         "description": "Informaat is een project waar de focus hoog ligt op het maken van een responsive website, daarbij vinden er veel veranderingen plaats in de layout op verschillende scherm groottes.",
+        "stack": ["Figma", "HTML", "CSS"],
         "website": "https://kyantg.github.io/the-startup-responsive-interactive-website/Informaat/informaat.html",
         "websitePhoneOne": "/informaat-mobile-one.png",
         "websitePhoneTwo": "/informaat-mobile-two.png",
@@ -19,6 +20,7 @@
         "title": "Mediahuis",
         "showcaseImage": "/mediahuis.png",
         "description": "Mediahuis is een project waar de focus hoog ligt om ervoor te zorgen dat de gebruiker kan zien welke radiozender er momenteel afspeelt en wat later nog gaat afspelen, ook is het erg belangrijk dat de gebruiker hier zijn favoriete shows kan liken.",
+        "stack": ["Figma", "Liquid", "CSS", "Javascript", "server.js"],
         "website": "https://pleasurable-ui-1yqs.onrender.com/radio-veronica",
         "websitePhoneOne": "/mediahuis-mobile-one.png",
         "websitePhoneTwo": "/mediahuis-mobile-two.png",
@@ -34,6 +36,7 @@
         "title": "Embassy of the Free Mind",
         "showcaseImage": "/embassy-of-the-free-mind.png",
         "description": "Embassy of the Free Mind is een project waar de focus hoog ligt op het behouden van een online boeken catalogus, hierbij is het cruciaal dat een gebruiker door het boek heen kan bladeren en deze kan lezen. Als extra functie is er een reactie formulier bij geplaatst om vragen of recensies achter te laten.",
+        "stack": ["Figma", "Liquid", "CSS", "Javascript", "server.js"],
         "website": "https://proof-of-concept-cu3y.onrender.com",
         "websitePhoneOne": "/embassy-of-the-free-mind-mobile-one.png",
         "websitePhoneTwo": "/embassy-of-the-free-mind-mobile-two.png",
@@ -49,6 +52,7 @@
         "title": "OnCollaboration",
         "showcaseImage": "/oncollaboration.png",
         "description": "OnCollaboration is een project waar de focus hoog ligt op het informeren van radiologen in Indonesie, hierbij is het cruciaal dat er Webinars terug te zien zijn en dat hier reacties achtergelaten kunnen worden. Dit is een teamproject.",
+        "stack": ["Figma", "SvelteKit", "HTML", "CSS", "Javascript"],
         "website": "https://oncollaboration.dev.fdnd.nl/",
         "websitePhoneOne": "/oncollaboration-mobile-one.png",
         "websitePhoneTwo": "/oncollaboration-mobile-two.png",
@@ -58,10 +62,5 @@
         "websiteDesktopTwo": "/oncollaboration-desktop-two.png",
         "websiteDesktopThree": "/oncollaboration-desktop-three.png",
         "websiteDesktopFour": "/oncollaboration-desktop-four.png"
-    },
-    {
-        "slug": "javascript-30-course",
-        "title": "javascript 30 course",
-        "description": "Currently working on the JavaScript 30 course, a 30-day challenge to improve JavaScript skills."
     }
 ]

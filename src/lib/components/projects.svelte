@@ -2,7 +2,7 @@
     import projects from '$lib/data/projects.json';
 </script>
 
-<div class="project-root" onmousemove={(e) => { e.currentTarget.style.setProperty('--x', `${e.clientX}px`); e.currentTarget.style.setProperty('--y', `${e.clientY}px`);}}>
+<div class="project-root" role="region" onmousemove={(e) => { e.currentTarget.style.setProperty('--x', `${e.clientX}px`); e.currentTarget.style.setProperty('--y', `${e.clientY}px`);}}>
     <section class="project-articles">
         {#each projects as project}
             <div class="project-article">

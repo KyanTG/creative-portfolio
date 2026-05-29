@@ -11,21 +11,13 @@
 <style>
 
     .project-typer-h1 {
+        interpolate-size: allow-keywords;
         width: 0;
-        animation: typing-project-mobile-h1 0.6s steps(9) 0.8s forwards;
-
-        @media ( min-width: 400px ) {
-            animation: typing-project-h1 0.6s steps(9) 0.8s forwards;
-        }
-    }
-
-    @keyframes typing-project-mobile-h1 {
-        from { width: 0; border-right-color: var(--secondary-color); }
-        to { width: 62%; border-right-color: var(--secondary-color); }
+        animation: typing-project-h1 0.6s steps(9) 0.8s forwards;
     }
 
     @keyframes typing-project-h1 {
         from { width: 0; border-right-color: var(--secondary-color); }
-        to { width: 55%; border-right-color: var(--secondary-color); }
+        to { width: max-content; border-right-color: var(--secondary-color); }
     }
 </style>
