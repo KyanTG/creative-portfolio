@@ -6,10 +6,10 @@
 
 
 <section class="personal-header">
-    <h1 class="home-typer-h1 h1-typer-style" class:done={h1Done} onanimationend={() => h1Done = true}>
+    <h1 class="home-typer-h1 h1-typer-style" class:done={h1Done} style:--typing={h1Done ? 'done' : 'typing'} onanimationend={() => h1Done = true}>
         {personal.name}
     </h1>
-    <h2 class="home-typer-h2 h2-typer-style" class:done={h2Done} onanimationend={() => h2Done = true}>
+    <h2 class="home-typer-h2 h2-typer-style" class:done={h2Done} style:--typing={h2Done ? 'done' : 'typing'} onanimationend={() => h2Done = true}>
         {personal.role}
     </h2>
 </section>

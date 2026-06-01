@@ -112,6 +112,13 @@ html {
     .done {
         border-right: none !important;
     }
+
+    @supports (border-right: if(style(--typing: done): none; else: 2px solid transparent)) {
+        .h1-typer-style,
+        .h2-typer-style {
+            border-right: if(style(--typing: done): none; else: 2px solid transparent);
+        }
+    }
 }
 
     @view-transition {
