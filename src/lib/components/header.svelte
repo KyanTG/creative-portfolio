@@ -61,10 +61,11 @@
 
     .menu {
         appearance: none;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1rem);
+        grid-template-rows: repeat(2, 1rem);
         gap: 5px;
+        place-content: center;
         position: absolute;
         top: 0;
         right: 0;
@@ -75,7 +76,6 @@
         width: 4.5rem;
         border-radius: 50%;
         box-sizing: border-box;
-        padding: 0 17.5px;
         cursor: pointer;
     }
 
