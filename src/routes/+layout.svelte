@@ -30,6 +30,7 @@
 	}
 
 	:global(footer) {
-		padding-bottom: 1rem;
+		margin-top: 6rem;
+		padding-bottom: 4rem;
 	}
 </style>

@@ -32,7 +32,7 @@ html {
     /* shared by h1 padding-top and hamburger position */
     --h1-top: 6rem;
     --hamburger-right: 1rem;
-    --hamburger-top: 0.5rem;
+    --hamburger-top: 1rem;
 
     @media ( min-width: 700px ) {
         --h1-top: 3rem;
