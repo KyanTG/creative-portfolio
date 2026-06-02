@@ -100,15 +100,12 @@
     }
 
     header nav ul {
-        display: grid;
-        grid-template-columns: 4.5rem 4.5rem; 
-        grid-template-rows: 4.5rem 4.5rem;
-        gap: 0.5rem;
+        position: relative;
         width: 9.5rem;
         height: 9.5rem;
         margin: 0;
         padding: 0;
-        pointer-events: none; 
+        pointer-events: none;
         visibility: hidden;
     }
 
@@ -123,6 +120,7 @@
     }
 
     header li {
+        position: absolute;
         list-style: none;
         background: var(--secondary-color, #eee);
         height: 4.5rem;
@@ -145,20 +143,20 @@
     }
 
     header nav ul li:nth-of-type(1) {
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
+        top: 0;
+        left: 0;
         transform: translate(calc(4.5rem + var(--hamburger-right)), 0) scale(0.5);
     }
 
     header nav ul li:nth-of-type(2) {
-        grid-column: 1 / 2;
-        grid-row: 2 / 3;
+        bottom: 0;
+        left: 0;
         transform: translate(calc(4.5rem + var(--hamburger-right)), calc(-4.5rem - var(--hamburger-right))) scale(0.5);
     }
 
     header nav ul li:nth-of-type(3) {
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
+        bottom: 0;
+        right: 0;
         transform: translate(0, calc(-4.5rem - var(--hamburger-right))) scale(0.5);
     }
 
