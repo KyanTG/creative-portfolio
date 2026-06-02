@@ -4,7 +4,7 @@
 </script>
 
 <section class="project-header">
-    <h1 class="project-typer-h1 h1-typer-style" class:done={h1Done} onanimationend={() => h1Done = true}>{projectTyper.name}</h1>
+    <h1 class="project-typer-h1 h1-typer-style" class:done={h1Done} style:--typing={h1Done ? 'done' : 'typing'} onanimationend={() => h1Done = true}>{projectTyper.name}</h1>
 
 </section>
 

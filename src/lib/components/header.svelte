@@ -49,7 +49,6 @@
         border: none;
         overflow: hidden;
         transition: all 0.3s ease 0.3s;
-        padding-right: var(--hamburger-right);
     }
 
     header.menu-open {

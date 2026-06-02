@@ -32,7 +32,7 @@ html {
     /* shared by h1 padding-top and hamburger position */
     --h1-top: 6rem;
     --hamburger-right: 1rem;
-    --hamburger-top: 0.5rem;
+    --hamburger-top: 1rem;
 
     @media ( min-width: 700px ) {
         --h1-top: 3rem;
@@ -111,6 +111,13 @@ html {
 
     .done {
         border-right: none !important;
+    }
+
+    @supports (border-right: if(style(--typing: done): none; else: 2px solid transparent)) {
+        .h1-typer-style,
+        .h2-typer-style {
+            border-right: if(style(--typing: done): none; else: 2px solid transparent);
+        }
     }
 }
 

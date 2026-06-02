@@ -173,7 +173,7 @@
 
     .phone-ring-track,
     .desktop-ring-track {
-        margin-top: 4rem;
+        margin-top: 20rem;
     }
 
     .phone-ring,
