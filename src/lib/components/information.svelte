@@ -19,7 +19,7 @@
             },
             (context) => {
                 const { isDesktop } = context.conditions;
-                const xPercentMultiplier = isDesktop ? -100 : -200;
+                const xPercentMultiplier = isDesktop ? -100 : -125;
 
                 const articles = gsap.utils.toArray(".article-wrapper", scrollContainer);
 
@@ -121,10 +121,11 @@
 </div>
 
 <style>
-    .scroll-wrap { 
-        overflow: hidden; 
-        width: 100%; 
-        height: 100vh; 
+    .scroll-wrap {
+        overflow: hidden;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        height: 100vh;
     }
 
     .horizontal-scroll-sec { 
@@ -139,7 +140,11 @@
         justify-content: center; 
         width: 100vw; 
         height: 100vh; 
-        margin-right: 100vw; /* Mobile-first: double space by default */
+        margin-right: 25vw; /* Mobile-first: gap between items */
+    }
+
+    .article-wrapper:last-child {
+        margin-right: 0;
     }
 
     @media (min-width: 1024px) {

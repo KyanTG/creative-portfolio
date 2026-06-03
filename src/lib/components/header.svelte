@@ -38,7 +38,6 @@
 
 <style>
 
-
     header {
         position: fixed;
         height: 4.5rem;

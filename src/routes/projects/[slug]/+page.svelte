@@ -23,12 +23,20 @@
             {#if project.websitePhoneOne}
                 <section class="phone-ring-track" style="--count: 4;">
                     <div class="phone-ring-stage">
-                        <div class="phone-ring">
-                            <img class="phone-ring-item" style="--i: 0;" src={project.websitePhoneOne} alt={project.title}>
-                            <img class="phone-ring-item" style="--i: 1;" src={project.websitePhoneTwo} alt={project.title}>
-                            <img class="phone-ring-item" style="--i: 2;" src={project.websitePhoneThree} alt={project.title}>
-                            <img class="phone-ring-item" style="--i: 3;" src={project.websitePhoneFour} alt={project.title}>
-                        </div>
+                        <ul class="phone-ring">
+                            <li class="phone-ring-item" style="--i: 0;">
+                                <img src={project.websitePhoneOne} alt={project.title}>
+                            </li>
+                            <li class="phone-ring-item" style="--i: 1;">
+                                <img src={project.websitePhoneTwo} alt={project.title}>
+                            </li>
+                            <li class="phone-ring-item" style="--i: 2;">
+                                <img src={project.websitePhoneThree} alt={project.title}>
+                            </li>
+                            <li class="phone-ring-item" style="--i: 3;">
+                                <img src={project.websitePhoneFour} alt={project.title}>
+                            </li>
+                        </ul>
                     </div>
                 </section>
             {/if}
@@ -36,12 +44,20 @@
             {#if project.websiteDesktopOne}
                 <section class="desktop-ring-track" style="--count: 4;">
                     <div class="desktop-ring-stage">
-                        <div class="desktop-ring">
-                            <img class="desktop-ring-item" style="--i: 0;" src={project.websiteDesktopOne} alt={project.title}>
-                            <img class="desktop-ring-item" style="--i: 1;" src={project.websiteDesktopTwo} alt={project.title}>
-                            <img class="desktop-ring-item" style="--i: 2;" src={project.websiteDesktopThree} alt={project.title}>
-                            <img class="desktop-ring-item" style="--i: 3;" src={project.websiteDesktopFour} alt={project.title}>
-                        </div>
+                        <ul class="desktop-ring">
+                            <li class="desktop-ring-item" style="--i: 0;">
+                                <img src={project.websiteDesktopOne} alt={project.title}>
+                            </li>
+                            <li class="desktop-ring-item" style="--i: 1;">
+                                <img src={project.websiteDesktopTwo} alt={project.title}>
+                            </li>
+                            <li class="desktop-ring-item" style="--i: 2;">
+                                <img src={project.websiteDesktopThree} alt={project.title}>
+                            </li>
+                            <li class="desktop-ring-item" style="--i: 3;">
+                                <img src={project.websiteDesktopFour} alt={project.title}>
+                            </li>
+                        </ul>
                     </div>
                 </section>
             {/if}
@@ -181,6 +197,7 @@
         display: grid;
         gap: 1.5rem;
         padding-inline: 1rem;
+        list-style: none;
     }
 
     .phone-ring {
@@ -200,8 +217,9 @@
         }
     }
 
-    .phone-ring-item,
-    .desktop-ring-item {
+    .phone-ring-item img,
+    .desktop-ring-item img {
+        display: block;
         width: 100%;
         border-radius: 20px;
         border: 3px solid var(--primary-color);
@@ -282,11 +300,29 @@
         .desktop-ring-item {
             position: absolute;
             inset: 0;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 20px;
-            backface-visibility: hidden;
+            transform-style: preserve-3d;
             transform: rotateY(calc(var(--i) * (360deg / var(--count)))) translateZ(var(--radius));
+        }
+
+        .phone-ring-item img,
+        .desktop-ring-item img {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .phone-ring-item::after,
+        .desktop-ring-item::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: var(--secondary-color);
+            border: 3px solid var(--primary-color);
+            outline: 3px solid var(--secondary-color);
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
         }
     }
 </style>
